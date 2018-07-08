@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
+import logoImg from '../../../assets/logo/logo_175x50.png'
 
 export default class HeaderLogo extends Component {
 
 	render() {
-		const logoImg = '/logo_175x50.png'
-
 		return (
 			<div className="header">
 				<a href='/'>
-					<img className="logo-sm"  src={logoImg}/>
+					<img className="logo-sm" alt="logo" src={logoImg}/>
 				</a>
 			</div>
 		)

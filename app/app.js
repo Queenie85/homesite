@@ -1,4 +1,5 @@
 require('./stylesheets/app.scss')
+import 'bootstrap/dist/css/bootstrap.css'
 //react stuff
 import React from 'react'
 import { render } from 'react-dom'
