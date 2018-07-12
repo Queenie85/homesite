@@ -24,20 +24,9 @@ body.noScroll {
 	right:1em;
 }
 
-.homecontainerTest {
-	background-color: #ce8483;
-	padding-top: 110px;
-}
-
 .navbar-button {
-	margin: 0;
 	height: 47px;
 	width: 90px;
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	font-family: Arial, "Open Sans", sans-serif;
 	font-size: 14px;
 	letter-spacing: 1px;
@@ -105,16 +94,6 @@ h1.page-head {
 		box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
 		z-index: $layer-3;
 		position: relative;
-	}
-	&.sticky {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-	}
-	&.shrink {
-		height: 20px;
 	}
 }
 
@@ -314,6 +293,10 @@ h1.page-head {
 	z-index: 1;
 }
 
+.body {
+	padding-top: 100px;
+}
+
 @media (max-width: 768px) {
 	.top-nav {
 		height: 80px;
@@ -366,16 +349,12 @@ h1.page-head {
 		margin-left: 5vw;
 	}
 
-	//.navbar-collapse.collapse {
-	//	display: block!important;
-	//	height: auto!important;
-	//	overflow: visible!important;
-	//	border: none;
-	//	margin-right: 15px;
-	//}
-
 	.navbar-toggle {
 		display: none
+	}
+
+	.body {
+		padding-top: 90px;
 	}
 }
 @media (max-width: 400px) {
@@ -404,6 +383,7 @@ h1.page-head {
 	.navbar-header {
 		flex: 1;
 	}
+
 }
 
 .scroll-down-arrow {
