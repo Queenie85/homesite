@@ -6,7 +6,7 @@ import {signup} from "../../../actions/userActions"
 class SignupContainer extends Component {
 	render() {
 		return (
-			<div>
+			<div className="body">
 				<SignupPage
 					userSignupState={this.props.userSignupState}
 					signupHandler={this.signupHandler.bind(this)}
