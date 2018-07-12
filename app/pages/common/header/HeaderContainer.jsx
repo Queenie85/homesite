@@ -1,18 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import HeaderLogo from './HeaderLogo'
 import HeaderNavBar from './HeaderNavBar'
 import { Navbar } from 'reactstrap'
-
-Navbar.propTypes = {
-    light: PropTypes.bool,
-    dark: PropTypes.bool,
-    fixed: PropTypes.string,
-    color: PropTypes.string,
-    role: PropTypes.string,
-    expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-}
 
 export default class HeaderContainer extends Component {
 
