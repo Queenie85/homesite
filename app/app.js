@@ -20,36 +20,36 @@ const env = config.env
 
 let Router
 if (env === 'dev') {
-    Router = HashRouter
+	Router = HashRouter
 } else {
-    Router = BrowserRouter
+	Router = BrowserRouter
 }
 
 let store = createStore(homesite,
-    compose(
-        applyMiddleware(thunk)
-    )
+	compose(
+		applyMiddleware(thunk)
+	)
 )
 
 let routes = (
-    <div className="app">
-        <Provider store={store}>
-            <Router>
-                <ReactCSSTransitionGroup
-                    transitionName="overall"
-                    transitionEnterTimeout={1000}
-                    transitionLeaveTimeout={1000}>
-                    <HeaderContainer/>
-                    <div className="main-content">
-                        <Switch>
-                            <Route exact name="signup" path="/users/signup" component={SignupContainer}/>
-                            <Route exact name="home" path="/" component={HomePageContainer}/>
-                        </Switch>
-                    </div>
-                </ReactCSSTransitionGroup>
-            </Router>
-        </Provider>
-    </div>
+	<div className="app">
+		<Provider store={store}>
+			<Router>
+				<ReactCSSTransitionGroup
+					transitionName="overall"
+					transitionEnterTimeout={1000}
+					transitionLeaveTimeout={1000}>
+					<HeaderContainer/>
+					<div className="main-content">
+						<Switch>
+							<Route exact name="signup" path="/users/signup" component={SignupContainer}/>
+							<Route exact name="home" path="/" component={HomePageContainer}/>
+						</Switch>
+					</div>
+				</ReactCSSTransitionGroup>
+			</Router>
+		</Provider>
+	</div>
 )
 
 render(routes, document.getElementById('root'))
