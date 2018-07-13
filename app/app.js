@@ -10,7 +10,6 @@ import {Provider} from 'react-redux'
 import {applyMiddleware, compose, createStore} from 'redux'
 import thunk from 'redux-thunk'
 import homesite from './reducers'
-//container stuff
 import HomePageContainer from './pages/home/HomePageContainer'
 import SignupContainer from './pages/users/signup/SignupContainer'
 import HeaderContainer from './pages/common/header/HeaderContainer'
@@ -54,3 +53,4 @@ let routes = (
 )
 
 render(routes, document.getElementById('root'))
+
