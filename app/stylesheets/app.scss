@@ -14,6 +14,33 @@ body.noScroll {
   overflow: hidden; /*stop scrolling*/
 }
 
+.title-container {
+  margin-bottom: 100px;
+}
+
+.signup-title {
+  font-size: 30px;
+  color: #5F5D5D;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+.bold-line-separator {
+  position:absolute;
+  background-color: #C10310;
+  height: 12px;
+  width: 355px;
+  left: 0;
+}
+
+.line-separator {
+  position: absolute;
+  background-color: #C10310;
+  height: 2px;
+  width: 550px;
+  left: 0;
+}
+
 .app, .app-container {
   height: 100%;
 }
@@ -313,6 +340,110 @@ h1.page-head {
   padding-top: 100px;
 }
 
+
+//progress bar css
+.step-progress {
+  margin-top: 75px;
+}
+
+ol.progtrckr {
+  list-style-type: none;
+  padding: 0;
+  pointer-events: none;
+  counter-reset: step;
+  margin-bottom: 80px;
+}
+
+ol.progtrckr li {
+  display: inline-block;
+  text-align: center;
+  line-height: 4.5rem;
+  cursor: pointer;
+}
+
+ol.progtrckr li span {
+  padding: 0 1.5rem;
+}
+
+.progtrckr em {
+  display: none;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+ol.progtrckr li.progtrckr-todo {
+  color: black;
+  border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li.progtrckr-doing {
+  color: black;
+  border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li.progtrckr-done {
+  color: black;
+  border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li:after {
+  content: "\00a0\00a0";
+}
+
+ol.progtrckr li:before {
+  position: relative;
+  bottom: -3.7rem;
+  float: left;
+  left: 50%;
+}
+
+ol.progtrckr li.progtrckr-todo:before {
+  color: white;
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height : 30px;
+  border: 3px solid #C10310;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: #C10310;
+}
+
+ol.progtrckr li.progtrckr-doing:before {
+  color: #C10310;
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height : 30px;
+  border: 3px solid #C10310;
+  box-shadow: 2px 2px 2px #5E5E5E;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: #fff;
+}
+
+ol.progtrckr li.progtrckr-done:before {
+  color: #C10310;
+  content: '\2713';
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height : 30px;
+  border: 3px solid white;
+  box-shadow: 2px 2px 2px #5E5E5E;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: white;
+}
+
 @media (max-width: 768px) {
   .top-nav {
     height: 80px;
@@ -372,6 +503,10 @@ h1.page-head {
   .main-content {
     padding-top: 90px;
   }
+
+  .progtrckr li span {
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
@@ -399,6 +534,10 @@ h1.page-head {
 
   .navbar-header {
     flex: 1;
+  }
+
+  .progtrckr em {
+    display: inline;
   }
 
 }
