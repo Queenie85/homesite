@@ -9,3 +9,4 @@ app/config/*
 public/
 npm-debug.log
 app/npm-debug.log
+*/.idea/
