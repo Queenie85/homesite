@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body.noScroll {
@@ -14,46 +14,216 @@ body.noScroll {
 }
 
 .app, .app-container {
-  height: 100%;
+	height: 100%;
 }
 
 .signup-button, .signout-button {
 	margin-top: 1.8em;
 	color: $cta-red;
 	right: 1em;
+<<<<<<< HEAD
 }
 
-.navbar-button {
-  height: 47px;
-  width: 90px;
-  font-family: Arial, "Open Sans", sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  line-height: 14px;
-  color: #5F5D5D;
-  text-align: left;
-  display: inline-block;
+=======
+}
 
-  &:hover {
-    color: $theme-red;
-  }
+.form-container {
+	padding: 0;
+}
+
+.container {
+	margin-top: -30px;
+}
+
+//SignupPageTitle
+.signup-title {
+	font-size: 30px;
+	color: #5F5D5D;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	position: absolute;
+	left: 280px;
+	top: 120px;
+}
+
+.title-container {
+	margin-top: 100px;
+	text-align: center;
+}
+
+//SignupPageTitleBar
+.line-separator {
+	position: absolute;
+	background-color: #C10310;
+	height: 2px;
+	width: 550px;
+	left: 280px;
+	top: 150px;
+}
+
+.bold-line-separator {
+	position: absolute;
+	background-color: #C10310;
+	height: 12px;
+	width: 355px;
+	left: 280px;
+	top: 152px;
+}
+
+//SignupPageProgressBar
+.signup-container {
+	text-align: center;
+}
+
+.progress-bar-container {
+	margin-top: 30px;
+	display: inline-block;
+	max-width: 65%;
+}
+
+ol.progtrckr {
+	list-style-type: none;
+	padding: 0;
+	pointer-events: none;
+	counter-reset: step;
+	margin-bottom: 80px;
+}
+
+ol.progtrckr li {
+	display: inline-block;
+	text-align: center;
+	line-height: 4.5rem;
+	cursor: pointer;
+}
+
+ol.progtrckr li span {
+	padding: 0 1.5rem;
+}
+
+.progtrckr em {
+	display: none;
+	font-weight: 700;
+	padding-left: 1rem;
+}
+
+ol.progtrckr li.progtrckr-todo {
+	color: #5E5E5E;
+	border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li.progtrckr-doing {
+	color: #5E5E5E;
+	border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li.progtrckr-done {
+	color: #5E5E5E;
+	border-bottom: 1px solid #C10310;
+}
+
+ol.progtrckr li:after {
+	content: "\00a0\00a0";
+}
+
+ol.progtrckr li:before {
+	position: relative;
+	bottom: -3.7rem;
+	float: left;
+	left: 50%;
+}
+
+ol.progtrckr li.progtrckr-todo:before {
+	color: white;
+	content: counter(step);
+	counter-increment: step;
+	width: 35px;
+	height: 35px;
+	line-height: 30px;
+	border: 3px solid #C10310;
+	border-radius: 100%;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
+	background-color: #C10310;
+}
+
+ol.progtrckr li.progtrckr-doing:before {
+	color: #C10310;
+	content: counter(step);
+	counter-increment: step;
+	width: 35px;
+	height: 35px;
+	line-height: 30px;
+	border: 3px solid #C10310;
+	box-shadow: 2px 2px 2px #5E5E5E;
+	border-radius: 100%;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
+	background-color: #fff;
+}
+
+ol.progtrckr li.progtrckr-done:before {
+	color: #C10310;
+	content: '\2713';
+	counter-increment: step;
+	width: 35px;
+	height: 35px;
+	line-height: 30px;
+	border: 3px solid white;
+	box-shadow: 2px 2px 2px #5E5E5E;
+	border-radius: 100%;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
+	background-color: white;
+}
+
+button.btn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	background-color: #b22e3c;
+	border-color: transparent;
+	float: right;	
+
+	&:hover {
+		background-color: #DC3545;
+	}
+}
+
+//HeaderNavBar
+>>>>>>> fix indent to tab
+.navbar-button {
+	height: 47px;
+	width: 90px;
+	font-family: Arial, "Open Sans", sans-serif;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	line-height: 14px;
+	color: #5F5D5D;
+	text-align: left;
+	display: inline-block;
+
+	&:hover {
+		color: $theme-red;
+	}
 }
 
 .nav-item {
-  height: 47px;
-  width: 97.4375px;
-  margin-left: 20px;
-  float: left;
-  position: relative;
-  display: inline-block;
-  padding: 0 22px 0 0;
+	height: 47px;
+	width: 97.4375px;
+	margin-left: 20px;
+	float: left;
+	position: relative;
+	display: inline-block;
+	padding: 0 22px 0 0;
 }
 
 .h-separate {
-  width: 100%;
-  height: 1px;
-  background-color: $cyan;
+	width: 100%;
+	height: 1px;
+	background-color: $cyan;
 }
 
 @-webkit-keyframes moveToLeft {
@@ -89,25 +259,29 @@ body.noScroll {
 .example-leave {
 	position: absolute !important; //keep elements on page from shifting
 	width: 100%;
+<<<<<<< HEAD
 	top: 0px;
+=======
+	top: 0;
+>>>>>>> fix indent to tab
 	animation: moveToLeft 0.75s ease both;
 }
 
 h1.page-head {
-  display: none;
+	display: none;
 }
 
 .top-nav {
-  height: 94px;
-  width: 100%;
-  &.row {
-    margin: 0;
-    background: white;
-    color: $theme-red;
-    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
-    z-index: $layer-3;
-    position: relative;
-  }
+	height: 94px;
+	width: 100%;
+	&.row {
+		margin: 0;
+		background: white;
+		color: $theme-red;
+		box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+		z-index: $layer-3;
+		position: relative;
+	}
 }
 
 .top-nav .header {
@@ -118,10 +292,17 @@ h1.page-head {
 	max-height: 60%;
 	float: left;
 	&:after {
+<<<<<<< HEAD
 	height: 1px;
 	width: 100%;
 	content: '';
 	background-color: #ddd;
+=======
+		height: 1px;
+		width: 100%;
+		content: '';
+		background-color: #ddd;
+>>>>>>> fix indent to tab
 	}
 
 	.logo-sm {
@@ -133,26 +314,34 @@ h1.page-head {
 	}
 
 	h1 {
+<<<<<<< HEAD
 	font-size: 21px;
 	font-weight: normal;
 	display: block;
 	margin: 0.4em 2em 0em 5em;
 	width: 90%;
+=======
+		font-size: 21px;
+		font-weight: normal;
+		display: block;
+		margin: 0.4em 2em 0em 5em;
+		width: 90%;
+>>>>>>> fix indent to tab
 	}
 }
 
 .header {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .loading-spinner {
-  width: 36px;
-  height: 36px;
-  margin: 6px;
-  position: absolute;
-  right: 0;
+	width: 36px;
+	height: 36px;
+	margin: 6px;
+	position: absolute;
+	right: 0;
 }
 
 .navbar-buttons {
@@ -167,19 +356,19 @@ h1.page-head {
 }
 
 .navbar-header {
-  position: absolute;
-  top: 24%;
-  right: 30px;
-  bottom: 0;
+	position: absolute;
+	top: 24%;
+	right: 30px;
+	bottom: 0;
 }
 
 .footer {
-  width: 100%;
-  background-color: #312B13;
-  padding: 15px 0px;
-  text-align: center;
-  margin: 0 auto;
-  min-height: $footer-height;
+	width: 100%;
+	background-color: #312B13;
+	padding: 15px 0px;
+	text-align: center;
+	margin: 0 auto;
+	min-height: $footer-height;
 }
 
 .container-fixer {
@@ -203,7 +392,7 @@ h1.page-head {
 }
 
 .footer-info {
-  color: white;
+	color: white;
 }
 
 .nav-links-container {
@@ -212,13 +401,13 @@ h1.page-head {
 }
 
 .user-nav, .plan-nav, .destinations-nav {
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
 }
 
 .plan-nav, .destinations-nav {
-  border-right: 1px solid #DDD;
+	border-right: 1px solid #DDD;
 }
 
 .nav-button {
@@ -238,10 +427,17 @@ h1.page-head {
 	&.disabled {
 		color: $grey;
 		cursor: default;
+<<<<<<< HEAD
 		&:hover {
 			color: $grey;
 		}
 	}
+=======
+	&:hover {
+		color: $grey;
+	}
+  }
+>>>>>>> fix indent to tab
 	.icon-text {
 		position: absolute;
 		top: 0;
@@ -249,19 +445,27 @@ h1.page-head {
 		right: 0;
 		bottom: 0;
 		color: #5F5D5D;
+<<<<<<< HEAD
 		text-decoration: none!important;
+=======
+		text-decoration: none !important;
+>>>>>>> fix indent to tab
 		text-align: left;
 		margin-top: 10px;
 
 		&:hover {
 			color: $theme-red;
+<<<<<<< HEAD
 			text-decoration: none!important;
+=======
+			text-decoration: none !important;
+>>>>>>> fix indent to tab
 		}
 	}
 }
 
 .user-button {
-  margin-left: -5px;
+	margin-left: -5px;
 }
 
 .save-button {
@@ -300,18 +504,19 @@ h1.page-head {
 }
 
 .menu-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
 }
 
 .main-content {
-  padding-top: 100px;
+	padding-top: 100px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 768px) {
   .top-nav {
     height: 80px;
@@ -371,51 +576,147 @@ h1.page-head {
   .main-content {
     padding-top: 90px;
   }
+=======
+@media (max-width: 1080px) {
+	.signup-title {
+		left: 80px;
+	}
+
+	.line-separator {
+		left: 80px;
+	}
+
+	.bold-line-separator {
+		position: absolute;
+		left: 80px;
+	}
+}
+
+@media (max-width: 768px) {
+	.top-nav {
+		height: 80px;
+		.plan-nav {
+			float: left;
+			border-right: 0;
+		}
+		.nav-button, .user-nav {
+			float: right;
+		}
+		.header {
+			text-align: center;
+			h1 {
+				display: none;
+			}
+		}
+	}
+
+	.top-nav .header {
+		padding: 0 0 0 15px;
+		display: block;
+		height: 80px;
+		width: 100%;
+		max-height: 60%;
+		float: left;
+
+		.logo-sm {
+			margin-left: 2%;
+			float: left;
+			height: 50px;
+			width: 176px;
+			position: relative;
+			top: 50%;
+			transform: translateY(-40%);
+		}
+	}
+
+	.header {
+		position: absolute;
+		height: 100%;
+	}
+
+	.nav-links-container {
+		position: absolute;
+		width: 100%;
+		left: 0;
+	}
+
+	h1.page-head {
+		display: block;
+		font-size: 1.5em;
+		margin-left: 5vw;
+	}
+
+	.navbar-toggle {
+		display: none
+	}
+
+	.main-content {
+		padding-top: 90px;
+	}
+
+	.progtrckr em {
+		display: inline;
+	}
+
+	.progtrckr li span {
+		display: none;
+	}
+
+	.title-container {
+		display: none;
+	}
+>>>>>>> fix indent to tab
 }
 
 @media (max-width: 400px) {
 
-  .top-nav .header {
-    .logo-sm {
-      margin-left: 2%;
-      float: left;
-      position: relative;
-      top: 50%;
-      transform: translateY(-40%);
-      height: 45.4531px;
-      width: 160px;
-      display: block;
-    }
+	.top-nav .header {
+		.logo-sm {
+			margin-left: 2%;
+			float: left;
+			position: relative;
+			top: 50%;
+			transform: translateY(-40%);
+			height: 45.4531px;
+			width: 160px;
+			display: block;
+		}
 
-    h1 {
-      display: none;
-    }
-  }
+		h1 {
+			display: none;
+		}
+	}
 
-  .header {
-    flex: 1;
-  }
+	.header {
+		flex: 1;
+	}
 
-  .navbar-header {
-    flex: 1;
-  }
+<<<<<<< HEAD
+=======
+	.navbar-header {
+		flex: 1;
+	}
 
+	.title-container {
+		display: none;
+	}
+>>>>>>> fix indent to tab
 }
 
 .scroll-down-arrow {
-  position: relative;
-  margin: 40px auto;
-  border-radius: 50%;
-  height: 66px;
-  width: 66px;
-  border: 1.5px solid rgb(51, 51, 51);
-  text-align: center;
+	position: relative;
+	margin: 40px auto;
+	border-radius: 50%;
+	height: 66px;
+	width: 66px;
+	border: 1.5px solid rgb(51, 51, 51);
+	text-align: center;
 }
 
 .scroll-down-arrow img {
-  position: relative;
-  width: 56px;
-  top: 8px;
+	position: relative;
+	width: 56px;
+	top: 8px;
 }
 
 .lan-selections {
@@ -429,7 +730,11 @@ h1.page-head {
 }
 
 .required-star {
+<<<<<<< HEAD
     color: red;
+=======
+	color: red;
+>>>>>>> fix indent to tab
 }
 
 #nonrequired-star {
@@ -439,13 +744,18 @@ h1.page-head {
 form {
 	text-align: center;
 	padding: 10px;
+<<<<<<< HEAD
 	padding-top: 75px;
+=======
+	padding-top: 100px;
+>>>>>>> fix indent to tab
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 label {
+<<<<<<< HEAD
     padding: 5 10px;
     vertical-align: right;
     margin-bottom: 0px;
@@ -471,12 +781,39 @@ input[type=password] {
 
 .row {
     text-align: left;
+=======
+	padding: 5 10px;
+	vertical-align: right;
+	margin-bottom: 0.5px;
+	margin-top: 15px;
+}
+
+input[type=text] {
+	background-color: #E5E5E5;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+input[type=email] {
+	background-color: #E5E5E5;
+	vertical-align: middle;
+}
+
+input[type=password] {
+	background-color: #E5E5E5;
+	vertical-align: middle;
+}
+
+.row {
+	text-align: left;
+>>>>>>> fix indent to tab
 }
 
 #Next {
 	text-align: center;
 	margin-top: 50px;
 	margin-left: auto;
+<<<<<<< HEAD
 }
 
 select[type=text] {
@@ -532,3 +869,6 @@ select[type=text] {
 #register {
 	background-color: red;
 }
+=======
+}
+>>>>>>> fix indent to tab
