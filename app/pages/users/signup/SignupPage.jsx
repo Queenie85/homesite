@@ -165,7 +165,7 @@ export default class SignupPage extends Component {
 						<div className="signup-exception margin-bottom-30">
 							<span>{signupMsg}</span>
 						</div>
-						<form>
+						<form className="form-container">
 							<div className="row">
 								<div className="col-lg-6 col-md-6">
 									<label>First Name
