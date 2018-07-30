@@ -21,10 +21,6 @@ body.noScroll {
 	margin-top: 1.8em;
 	color: $cta-red;
 	right: 1em;
-<<<<<<< HEAD
-}
-
-=======
 }
 
 .form-container {
@@ -184,7 +180,7 @@ button.btn {
 	margin-bottom: 10px;
 	background-color: #b22e3c;
 	border-color: transparent;
-	float: right;	
+	float: right;
 
 	&:hover {
 		background-color: #DC3545;
@@ -192,7 +188,6 @@ button.btn {
 }
 
 //HeaderNavBar
->>>>>>> fix indent to tab
 .navbar-button {
 	height: 47px;
 	width: 90px;
@@ -259,11 +254,7 @@ button.btn {
 .example-leave {
 	position: absolute !important; //keep elements on page from shifting
 	width: 100%;
-<<<<<<< HEAD
-	top: 0px;
-=======
 	top: 0;
->>>>>>> fix indent to tab
 	animation: moveToLeft 0.75s ease both;
 }
 
@@ -292,17 +283,10 @@ h1.page-head {
 	max-height: 60%;
 	float: left;
 	&:after {
-<<<<<<< HEAD
-	height: 1px;
-	width: 100%;
-	content: '';
-	background-color: #ddd;
-=======
 		height: 1px;
 		width: 100%;
 		content: '';
 		background-color: #ddd;
->>>>>>> fix indent to tab
 	}
 
 	.logo-sm {
@@ -314,19 +298,11 @@ h1.page-head {
 	}
 
 	h1 {
-<<<<<<< HEAD
-	font-size: 21px;
-	font-weight: normal;
-	display: block;
-	margin: 0.4em 2em 0em 5em;
-	width: 90%;
-=======
 		font-size: 21px;
 		font-weight: normal;
 		display: block;
 		margin: 0.4em 2em 0em 5em;
 		width: 90%;
->>>>>>> fix indent to tab
 	}
 }
 
@@ -427,21 +403,10 @@ h1.page-head {
 	&.disabled {
 		color: $grey;
 		cursor: default;
-<<<<<<< HEAD
-		&:hover {
-			color: $grey;
-		}
-	}
-=======
 	&:hover {
 		color: $grey;
 	}
-<<<<<<< HEAD
   }
->>>>>>> fix indent to tab
-=======
-}
->>>>>>> fix indent
 	.icon-text {
 		position: absolute;
 		top: 0;
@@ -449,21 +414,13 @@ h1.page-head {
 		right: 0;
 		bottom: 0;
 		color: #5F5D5D;
-<<<<<<< HEAD
 		text-decoration: none!important;
-=======
-		text-decoration: none !important;
->>>>>>> fix indent to tab
 		text-align: left;
 		margin-top: 10px;
 
 		&:hover {
 			color: $theme-red;
-<<<<<<< HEAD
 			text-decoration: none!important;
-=======
-			text-decoration: none !important;
->>>>>>> fix indent to tab
 		}
 	}
 }
@@ -520,67 +477,6 @@ h1.page-head {
 	padding-top: 100px;
 }
 
-<<<<<<< HEAD
-@media (max-width: 768px) {
-  .top-nav {
-    height: 80px;
-    .plan-nav {
-      float: left;
-      border-right: 0;
-    }
-    .nav-button, .user-nav {
-      float: right;
-    }
-    .header {
-      text-align: center;
-      h1 {
-        display: none;
-      }
-    }
-  }
-
-  .top-nav .header {
-    padding: 0 0 0 15px;
-    display: block;
-    height: 80px;
-    width: 100%;
-    max-height: 60%;
-    float: left;
-
-    .logo-sm {
-      margin-left: 2%;
-      float: left;
-      height: 50px;
-      width: 176px;
-      position: relative;
-      top: 50%;
-      transform: translateY(-40%);
-    }
-  }
-
-  .header {
-    position: absolute;
-    height: 100%;
-  }
-  .nav-links-container {
-    position: absolute;
-    width: 100%;
-    left: 0;
-  }
-  h1.page-head {
-    display: block;
-    font-size: 1.5em;
-    margin-left: 5vw;
-  }
-
-  .navbar-toggle {
-    display: none
-  }
-
-  .main-content {
-    padding-top: 90px;
-  }
-=======
 @media (max-width: 1080px) {
 	.signup-title {
 		left: 80px;
@@ -669,7 +565,6 @@ h1.page-head {
 	.title-container {
 		display: none;
 	}
->>>>>>> fix indent to tab
 }
 
 @media (max-width: 400px) {
@@ -695,8 +590,6 @@ h1.page-head {
 		flex: 1;
 	}
 
-<<<<<<< HEAD
-=======
 	.navbar-header {
 		flex: 1;
 	}
@@ -704,7 +597,6 @@ h1.page-head {
 	.title-container {
 		display: none;
 	}
->>>>>>> fix indent to tab
 }
 
 .scroll-down-arrow {
@@ -734,11 +626,7 @@ h1.page-head {
 }
 
 .required-star {
-<<<<<<< HEAD
-    color: red;
-=======
 	color: red;
->>>>>>> fix indent to tab
 }
 
 #nonrequired-star {
@@ -748,18 +636,13 @@ h1.page-head {
 form {
 	text-align: center;
 	padding: 10px;
-<<<<<<< HEAD
-	padding-top: 75px;
-=======
 	padding-top: 100px;
->>>>>>> fix indent to tab
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 label {
-<<<<<<< HEAD
     padding: 5 10px;
     vertical-align: right;
     margin-bottom: 0px;
@@ -785,39 +668,12 @@ input[type=password] {
 
 .row {
     text-align: left;
-=======
-	padding: 5 10px;
-	vertical-align: right;
-	margin-bottom: 0.5px;
-	margin-top: 15px;
-}
-
-input[type=text] {
-	background-color: #E5E5E5;
-	vertical-align: middle;
-	margin-top: 10px;
-}
-
-input[type=email] {
-	background-color: #E5E5E5;
-	vertical-align: middle;
-}
-
-input[type=password] {
-	background-color: #E5E5E5;
-	vertical-align: middle;
-}
-
-.row {
-	text-align: left;
->>>>>>> fix indent to tab
 }
 
 #Next {
 	text-align: center;
 	margin-top: 50px;
 	margin-left: auto;
-<<<<<<< HEAD
 }
 
 select[type=text] {
@@ -873,6 +729,3 @@ select[type=text] {
 #register {
 	background-color: red;
 }
-=======
-}
->>>>>>> fix indent to tab
