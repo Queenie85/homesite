@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import StepZilla from 'react-stepzilla'
 import SignupPage from './SignupPage'
+import SignupPageReview from './SignupPageReview'
 import {signup} from '../../../actions/userActions'
 
 class SignupPageProgressBar extends Component {
@@ -24,7 +25,12 @@ class SignupPageProgressBar extends Component {
                     name: 'Current & Past Experience',
                     component: <SignupPage
                         userSignupState={this.props.userSignupState}
-                        signupHandler={this.signupHandler.bind(this)}/>}
+                        signupHandler={this.signupHandler.bind(this)}/>
+                },
+                {
+                    name: 'Done',
+                    component: <SignupPageReview />
+                }
             ]
 
         return (
@@ -37,6 +43,9 @@ class SignupPageProgressBar extends Component {
                         backButtonText='Back'
                         stepsNavigation={false}
                         startAtStep={window.sessionStorage.getItem('step') ? parseFloat(window.sessionStorage.getItem('step')) : 0}
+                        nextButtonCls="btn btn-prev btn-danger"
+                        backButtonCls="btn btn-next btn-danger"
+                        nextTextOnFinalActionStep="Submit"
                         onStepChange={(step) => window.sessionStorage.setItem('step', step)}>
                     </StepZilla>
                 </div>

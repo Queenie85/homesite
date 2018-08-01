@@ -32,14 +32,13 @@ body.noScroll {
 	margin-top: -30px;
 }
 
-//SignupPageTitle
 .signup-title {
 	font-size: 30px;
 	color: #5F5D5D;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	position: absolute;
-	left: 280px;
+	left: calc((100vw - 1035px) / 2)!important;
 	top: 120px;
 }
 
@@ -54,7 +53,7 @@ body.noScroll {
 	background-color: #C10310;
 	height: 2px;
 	width: 550px;
-	left: 280px;
+	left: calc((100vw - 1035px) / 2)!important;
 	top: 150px;
 }
 
@@ -63,7 +62,7 @@ body.noScroll {
 	background-color: #C10310;
 	height: 12px;
 	width: 355px;
-	left: 280px;
+	left: calc((100vw - 1035px) / 2)!important;
 	top: 152px;
 }
 
@@ -75,7 +74,7 @@ body.noScroll {
 .progress-bar-container {
 	margin-top: 30px;
 	display: inline-block;
-	max-width: 65%;
+	max-width: 75%;
 }
 
 ol.progtrckr {
@@ -176,16 +175,18 @@ ol.progtrckr li.progtrckr-done:before {
 	background-color: white;
 }
 
-button.btn {
-	margin-top: 20px;
-	margin-bottom: 10px;
+.btn {
+	margin-bottom: 20px;
 	background-color: #b22e3c;
 	border-color: transparent;
-	float: right;	
+}
 
-	&:hover {
-		background-color: #DC3545;
-	}
+.btn-prev {
+	float: right;
+}
+
+.btn-next {
+	float: left;
 }
 
 //HeaderNavBar
@@ -478,18 +479,17 @@ h1.page-head {
 	padding-top: 100px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
 	.signup-title {
-		left: 80px;
+		left: calc((100vw - 558px) / 2)!important;
 	}
 
 	.line-separator {
-		left: 80px;
+		left: calc((100vw - 558px) / 2)!important;
 	}
 
 	.bold-line-separator {
-		position: absolute;
-		left: 80px;
+		left: calc((100vw - 558px) / 2)!important;
 	}
 }
 
@@ -556,13 +556,27 @@ h1.page-head {
 	}
 
 	.progtrckr em {
-		display: inline;
+		display: none;
 	}
 
 	.progtrckr li span {
 		display: none;
 	}
 
+	.signup-title {
+		left: calc((100vw - 558px) / 2)!important;
+	}
+
+	.line-separator {
+		left: calc((100vw - 558px) / 2)!important;
+	}
+
+	.bold-line-separator {
+		left: calc((100vw - 558px) / 2)!important;
+	}
+}
+
+@media (max-width: 600px) {
 	.title-container {
 		display: none;
 	}
@@ -593,10 +607,6 @@ h1.page-head {
 
 	.navbar-header {
 		flex: 1;
-	}
-
-	.title-container {
-		display: none;
 	}
 }
 
