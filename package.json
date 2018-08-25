@@ -11,6 +11,7 @@
   "main": "app/app.js",
   "dependencies": {
     "@material-ui/core": "^1.0.1",
+    "antd": "^3.8.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
@@ -40,6 +41,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-loader": "^7.1.4",
+    "babel-plugin-import": "^1.8.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
@@ -48,16 +50,18 @@
     "eslint-plugin-react": "^7.10.0",
     "file-loader": "^1.1.11",
     "jsx-loader": "^0.13.2",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "4.0.3",
     "react-hot-loader": "^4.3.3",
     "redux-devtools": "^3.4.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.14.0",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4",
-    "uglifyjs-webpack-plugin": "^1.2.7",
-    "optimize-css-assets-webpack-plugin": "4.0.3"
+    "webpack-dev-server": "^3.1.4"
   }
 }

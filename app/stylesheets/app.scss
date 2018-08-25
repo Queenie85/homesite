@@ -71,120 +71,133 @@ body.noScroll {
 	text-align: center;
 }
 
+.progress-container {
+	margin-top: 3%;
+}
+
 .progress-bar-container {
-	margin-top: 30px;
+	margin-top: 1%;
 	display: inline-block;
-	max-width: 65%;
+	width: 85%;
 }
-
-ol.progtrckr {
-	list-style-type: none;
-	padding: 0;
-	pointer-events: none;
-	counter-reset: step;
-	margin-bottom: 80px;
-}
-
-ol.progtrckr li {
-	display: inline-block;
-	text-align: center;
-	line-height: 4.5rem;
-	cursor: pointer;
-}
-
-ol.progtrckr li span {
-	padding: 0 1.5rem;
-}
-
-.progtrckr em {
-	display: none;
-	font-weight: 700;
-	padding-left: 1rem;
-}
-
-ol.progtrckr li.progtrckr-todo {
-	color: #5E5E5E;
-	border-bottom: 1px solid #C10310;
-}
-
-ol.progtrckr li.progtrckr-doing {
-	color: #5E5E5E;
-	border-bottom: 1px solid #C10310;
-}
-
-ol.progtrckr li.progtrckr-done {
-	color: #5E5E5E;
-	border-bottom: 1px solid #C10310;
-}
-
-ol.progtrckr li:after {
-	content: "\00a0\00a0";
-}
-
-ol.progtrckr li:before {
-	position: relative;
-	bottom: -3.7rem;
-	float: left;
-	left: 50%;
-}
-
-ol.progtrckr li.progtrckr-todo:before {
-	color: white;
-	content: counter(step);
-	counter-increment: step;
-	width: 35px;
-	height: 35px;
-	line-height: 30px;
-	border: 3px solid #C10310;
-	border-radius: 100%;
-	display: block;
-	text-align: center;
-	margin: 0 auto 10px auto;
-	background-color: #C10310;
-}
-
-ol.progtrckr li.progtrckr-doing:before {
-	color: #C10310;
-	content: counter(step);
-	counter-increment: step;
-	width: 35px;
-	height: 35px;
-	line-height: 30px;
-	border: 3px solid #C10310;
-	box-shadow: 2px 2px 2px #5E5E5E;
-	border-radius: 100%;
-	display: block;
-	text-align: center;
-	margin: 0 auto 10px auto;
-	background-color: #fff;
-}
-
-ol.progtrckr li.progtrckr-done:before {
-	color: #C10310;
-	content: '\2713';
-	counter-increment: step;
-	width: 35px;
-	height: 35px;
-	line-height: 30px;
-	border: 3px solid white;
-	box-shadow: 2px 2px 2px #5E5E5E;
-	border-radius: 100%;
-	display: block;
-	text-align: center;
-	margin: 0 auto 10px auto;
-	background-color: white;
-}
-
-button.btn {
-	margin-top: 20px;
-	margin-bottom: 10px;
-	background-color: #b22e3c;
+//
+// ol.progtrckr {
+// 	list-style-type: none;
+// 	padding: 0;
+// 	pointer-events: none;
+// 	counter-reset: step;
+// 	margin-bottom: 80px;
+// }
+//
+// ol.progtrckr li {
+// 	display: inline-block;
+// 	text-align: center;
+// 	line-height: 4.5rem;
+// 	cursor: pointer;
+// }
+//
+// ol.progtrckr li span {
+// 	padding: 0 1.5rem;
+// }
+//
+// .progtrckr em {
+// 	display: none;
+// 	font-weight: 700;
+// 	padding-left: 1rem;
+// }
+//
+// ol.progtrckr li.progtrckr-todo {
+// 	color: #5E5E5E;
+// 	border-bottom: 1px solid #C10310;
+// }
+//
+// ol.progtrckr li.progtrckr-doing {
+// 	color: #5E5E5E;
+// 	border-bottom: 1px solid #C10310;
+// }
+//
+// ol.progtrckr li.progtrckr-done {
+// 	color: #5E5E5E;
+// 	border-bottom: 1px solid #C10310;
+// }
+//
+// ol.progtrckr li:after {
+// 	content: "\00a0\00a0";
+// }
+//
+// ol.progtrckr li:before {
+// 	position: relative;
+// 	bottom: -3.7rem;
+// 	float: left;
+// 	left: 50%;
+// }
+//
+// ol.progtrckr li.progtrckr-todo:before {
+// 	color: white;
+// 	content: counter(step);
+// 	counter-increment: step;
+// 	width: 35px;
+// 	height: 35px;
+// 	line-height: 30px;
+// 	border: 3px solid #C10310;
+// 	border-radius: 100%;
+// 	display: block;
+// 	text-align: center;
+// 	margin: 0 auto 10px auto;
+// 	background-color: #C10310;
+// }
+//
+// ol.progtrckr li.progtrckr-doing:before {
+// 	color: #C10310;
+// 	content: counter(step);
+// 	counter-increment: step;
+// 	width: 35px;
+// 	height: 35px;
+// 	line-height: 30px;
+// 	border: 3px solid #C10310;
+// 	box-shadow: 2px 2px 2px #5E5E5E;
+// 	border-radius: 100%;
+// 	display: block;
+// 	text-align: center;
+// 	margin: 0 auto 10px auto;
+// 	background-color: #fff;
+// }
+//
+// ol.progtrckr li.progtrckr-done:before {
+// 	color: #C10310;
+// 	content: '\2713';
+// 	counter-increment: step;
+// 	width: 35px;
+// 	height: 35px;
+// 	line-height: 30px;
+// 	border: 3px solid white;
+// 	box-shadow: 2px 2px 2px #5E5E5E;
+// 	border-radius: 100%;
+// 	display: block;
+// 	text-align: center;
+// 	margin: 0 auto 10px auto;
+// 	background-color: white;
+// }
+//
+.progress-btn-container {
+	margin-bottom: 3%;
 	border-color: transparent;
+}
+
+.progress-nxt-btn {
 	float: right;
 
 	&:hover {
 		background-color: #DC3545;
 	}
+}
+
+.progress-back-btn {
+	float: left;
+}
+
+.ant-btn {
+	border-radius: 10%;
 }
 
 //HeaderNavBar
@@ -728,4 +741,8 @@ select[type=text] {
 
 #register {
 	background-color: red;
+
+.progress-back-button {
+	text-align: center;
+	margin-top: 100px;
 }

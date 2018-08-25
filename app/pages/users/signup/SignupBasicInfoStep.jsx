@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { cookieDomain, baseUrl } from '../../../config/config'
 import { isValidInternalURL } from '../../../util/validationHelpers'
-import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, handleInvalidFirstNameForSignUp, 
-				handleInvalidLastNameForSignUp, handleInvalidPhoneForSignUp } 
+import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, handleInvalidFirstNameForSignUp,
+				handleInvalidLastNameForSignUp, handleInvalidPhoneForSignUp }
 				from "../../../util/invalidInputHelpers.js"
 import loadingImage from '../../../assets/img/loading.gif'
 import PropTypes from 'prop-types'
@@ -40,7 +40,18 @@ export default class SignupBasicInfoStep extends Component {
 		this.timer = 0
 		this.startTimer = this.startTimer.bind(this)
 		this.countDown = this.countDown.bind(this)
+		this.isValidated = this.isValidated.bind(this)
 	}
+
+	isValidated () {
+		if (this.state.firstName === "" || this.state.lastName === "" ||
+			this.state.phone === "" || this.state.email === "" ||
+			this.state.password === "") {
+			return false
+		}
+		return true
+	}
+
 
 	startTimer() {
 		if (this.timer === 0) {
@@ -54,7 +65,7 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			countdownSeconds: countdownSeconds,
 		})
-		if (countdownSeconds === 0) { 
+		if (countdownSeconds === 0) {
 			window.clearInterval(this.timer)
 			let callbackURL = this.props.query === undefined ? null : decodeURIComponent(this.props.query)
 			if (isValidInternalURL(callbackURL, cookieDomain)) {
@@ -69,7 +80,7 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			firstName: event.target.value,
 		})
-		handleInvalidFirstNameForSignUp(this.state, event.target.value, 
+		handleInvalidFirstNameForSignUp(this.state, event.target.value,
 			"First name is required.",)
 	}
 
@@ -77,8 +88,8 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			lastName: event.target.value,
 		})
-		handleInvalidLastNameForSignUp(this.state, event.target.value, 
-			"Last field is required.",)
+		handleInvalidLastNameForSignUp(this.state, event.target.value,
+			"Last name is required.",)
 	}
 
 	handleChangePreferredName(event) {
@@ -99,8 +110,8 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			email: event.target.value,
 		})
-		handleInvalidEmailForSignUp(this.state, event.target.value, 
-			"The email you provide is invalid format.", 
+		handleInvalidEmailForSignUp(this.state, event.target.value,
+			"The email you provide is invalid format.",
 			"Email address is required.",)
 	}
 
@@ -109,7 +120,7 @@ export default class SignupBasicInfoStep extends Component {
 			password: event.target.value,
 		})
 		handleInvalidPasswordForSignUp(this.state, event.target.value,
-			"The password you provide is invalid.", 
+			"The password you provide is invalid.",
 			"Password is required.",)
 	}
 
@@ -131,7 +142,9 @@ export default class SignupBasicInfoStep extends Component {
 		if (this.state.consented) {
 			consented = true
 		}
+
 		this.props.signupHandler(firstName, lastName, preferredName, phone, email, password, consented)
+		this.props.nextHandler(true)
 	}
 
 	render() {
@@ -171,9 +184,9 @@ export default class SignupBasicInfoStep extends Component {
 									<label>First Name
 										<label className="required-star">*</label>
 									</label>
-									<input aria-label="firstname" 
-											className="border-white form-control transparent-input form-user" 
-											name="firstname" 
+									<input aria-label="firstname"
+											className="border-white form-control transparent-input form-user"
+											name="firstname"
 											placeholder="First Name"
 											type="text"
 											value={this.state.value}
@@ -183,16 +196,16 @@ export default class SignupBasicInfoStep extends Component {
 											</div>
 											<span></span>
 								</div>
-								<div className="col-lg-6 col-md-6">	
+								<div className="col-lg-6 col-md-6">
 									<label>Last Name
 										<label className="required-star">*</label>
 									</label>
-									<input aria-label="lastname" 
-											className="border-white form-control transparent-input form-user" 
-											name="lastname" 
+									<input aria-label="lastname"
+											className="border-white form-control transparent-input form-user"
+											name="lastname"
 											placeholder="Last Name"
-											type="text" 
-											value={this.state.value} 
+											type="text"
+											value={this.state.value}
 											onChange={this.handleChangeLastName.bind(this)} />
 											<div className="help-block inline-error">
 												<span>{this.state.errorMsgForSignUp["lastName"]}</span>
@@ -204,12 +217,12 @@ export default class SignupBasicInfoStep extends Component {
 									<label>Preferred Name
 										<label id="nonrequired-star">*</label>
 									</label>
-									<input aria-label="preferredName" 
-												className="border-white form-control transparent-input form-user" 
-												name="preferredName" 
+									<input aria-label="preferredName"
+												className="border-white form-control transparent-input form-user"
+												name="preferredName"
 												placeholder="Preferred Name"
-												type="text" 
-												value={this.state.value} 
+												type="text"
+												value={this.state.value}
 												onChange={this.handleChangePreferredName.bind(this)} />
 												<div className="help-block inline-error">
 													<span>{this.state.errorMsgForSignUp["Preferred name"]}</span>
@@ -219,12 +232,12 @@ export default class SignupBasicInfoStep extends Component {
 										<label>Phone Number
 											<label className="required-star">*</label>
 										</label>
-										<input aria-label="phone" 
-												className="border-white form-control transparent-input form-user" 
-												name="phone" 
+										<input aria-label="phone"
+												className="border-white form-control transparent-input form-user"
+												name="phone"
 												placeholder="Phone: (000)000-0000"
-												type="text" 
-												value={this.state.value} 
+												type="text"
+												value={this.state.value}
 												onChange={this.handleChangePhone.bind(this)} />
 												<div className="help-block inline-error">
 													<span>{this.state.errorMsgForSignUp["phone"]}</span>
@@ -236,28 +249,28 @@ export default class SignupBasicInfoStep extends Component {
 									<label>Email
 										<label className="required-star">*</label>
 									</label>
-										<input aria-label="email" 
-												className="border-white form-control transparent-input" 
-												name="email" 
+										<input aria-label="email"
+												className="border-white form-control transparent-input"
+												name="email"
 												placeholder="Email"
-												type="email" 
-												value={this.state.value} 
+												type="email"
+												value={this.state.value}
 												onChange={this.handleChangeEmail.bind(this)} />
 										<div className="help-block inline-error">
 											<span>{this.state.errorMsgForSignUp["email"]}</span>
-										</div>	
+										</div>
 								</div>
 								<div className="col-lg-6 col-md-6">
 									<label>Password
 										<label className="required-star">*</label>
 									</label>
-									<input aria-label="password" 
-												className="border-white form-control transparent-input" 
-												name="password" 
+									<input aria-label="password"
+												className="border-white form-control transparent-input"
+												name="password"
 												placeholder="Password"
-												minLength="6" 
-												type="password" 
-												value={this.state.value} 
+												minLength="6"
+												type="password"
+												value={this.state.value}
 												onChange={this.handleChangePassword.bind(this)} />
 										<div className="help-block inline-error">
 											<span>{this.state.errorMsgForSignUp["password"]}</span>
@@ -265,9 +278,9 @@ export default class SignupBasicInfoStep extends Component {
 								</div>
 							</div>
 							<div className="row">
-								<button type="submit" 
-										disabled={!this.state.signupValid} 
-										onClick={this.handleClickSignup.bind(this)} 
+								<button type="submit"
+										disabled={!this.state.signupValid}
+										onClick={this.handleClickSignup.bind(this)}
 										className="margin-bottom-10 btn col-xs-12 btn-danger"
 										id="Next"
 										>

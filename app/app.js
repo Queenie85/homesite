@@ -1,4 +1,5 @@
 require('./stylesheets/app.scss')
+import 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.css'
 //react stuff
 import React from 'react'
@@ -53,4 +54,3 @@ let routes = (
 )
 
 render(routes, document.getElementById('root'))
-
