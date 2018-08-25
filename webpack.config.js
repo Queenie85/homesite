@@ -23,8 +23,8 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{ 
-				test: /\.jsx|\.js?$/, 
+			{
+				test: /\.jsx|\.js?$/,
 				loader: 'babel-loader',
 				options: {
 					plugins: [
@@ -51,6 +51,24 @@ module.exports = {
 				include: /stylesheets/,
 				use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 			},
+            {
+                test: /\.less$/,
+                use: [{
+                  loader: 'style-loader',
+                }, {
+                  loader: 'css-loader', // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader', // compiles Less to CSS
+                    options: {
+                    modifyVars: {
+                         'primary-color': '#C10310',
+                         'link-color': '#C10310',
+                         'border-radius-base': '2px',
+                    },
+                        javascriptEnabled: true,
+                    },
+                }],
+            },
 			{
 				test: /\.(jpg|png|gif|eot|woff|ttf|svg)/,
 				loader: "file-loader"
