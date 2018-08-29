@@ -279,7 +279,7 @@ export default class SignupPage extends Component {
 							</div>
 							<div className="row">
 							</div>
-								<div>
+								<div className="signin-link">
 									<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
 									Sign in</Link>&nbsp;instead.
 								</div>
