@@ -144,7 +144,6 @@ export default class SignupPage extends Component {
 		}
 
 		this.props.signupHandler(firstName, lastName, preferredName, phone, email, password, consented)
-		this.props.nextHandler(true)
 	}
 
 	render() {
