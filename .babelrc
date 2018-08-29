@@ -5,8 +5,3 @@
 		["import", { "libraryName": "antd", "style": "true" }],
 	]
 }
-/* "plugins": [
-  ["import", { "libraryName": "antd", "libraryDirectory": "lib"}, "ant"],
-  ["import", { "libraryName": "ant-mobile", "libraryDirectory": "lib"}, "ant-mobile"]
-] */
-/* "plugins": ["react-hot-loader/babel"] */

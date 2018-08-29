@@ -10,11 +10,12 @@ import SignupPageContent from "./SignupPageContent"
 class SignupContainer extends Component {
     render() {
         return (
-            <div>
-                <div className="title-container">
-                    <SignupPageTitle />
-                    <SignupPageTitleBar />
-                    <SignupPageProgressBar/>
+            <div className="test">
+                <div className="signup-container">
+                    <div className="title-container">
+                        <SignupPageTitle />
+                        <SignupPageTitleBar />
+                    </div>
                 </div>
                 <div className="progress-bar-container">
                     <SignupPageContent/>

@@ -38,7 +38,7 @@ body.noScroll {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	position: absolute;
-	left: 280px;
+	left: calc(0.2 * 100vw)!important;
 	top: 120px;
 }
 
@@ -53,7 +53,7 @@ body.noScroll {
 	background-color: #C10310;
 	height: 2px;
 	width: 550px;
-	left: 280px;
+	left: calc(0.2 * 100vw)!important;
 	top: 150px;
 }
 
@@ -62,11 +62,11 @@ body.noScroll {
 	background-color: #C10310;
 	height: 12px;
 	width: 355px;
-	left: 280px;
+	left: calc(0.2 * 100vw)!important;
 	top: 152px;
 }
 
-//SignupPageProgressBar
+//SignupPageContent
 .signup-container {
 	text-align: center;
 }
@@ -75,129 +75,29 @@ body.noScroll {
 	margin-top: 3%;
 }
 
+.progress-outer-container {
+	margin-top: 2%;
+}
+
 .progress-bar-container {
 	margin-top: 1%;
 	display: inline-block;
-	width: 85%;
-}
-//
-// ol.progtrckr {
-// 	list-style-type: none;
-// 	padding: 0;
-// 	pointer-events: none;
-// 	counter-reset: step;
-// 	margin-bottom: 80px;
-// }
-//
-// ol.progtrckr li {
-// 	display: inline-block;
-// 	text-align: center;
-// 	line-height: 4.5rem;
-// 	cursor: pointer;
-// }
-//
-// ol.progtrckr li span {
-// 	padding: 0 1.5rem;
-// }
-//
-// .progtrckr em {
-// 	display: none;
-// 	font-weight: 700;
-// 	padding-left: 1rem;
-// }
-//
-// ol.progtrckr li.progtrckr-todo {
-// 	color: #5E5E5E;
-// 	border-bottom: 1px solid #C10310;
-// }
-//
-// ol.progtrckr li.progtrckr-doing {
-// 	color: #5E5E5E;
-// 	border-bottom: 1px solid #C10310;
-// }
-//
-// ol.progtrckr li.progtrckr-done {
-// 	color: #5E5E5E;
-// 	border-bottom: 1px solid #C10310;
-// }
-//
-// ol.progtrckr li:after {
-// 	content: "\00a0\00a0";
-// }
-//
-// ol.progtrckr li:before {
-// 	position: relative;
-// 	bottom: -3.7rem;
-// 	float: left;
-// 	left: 50%;
-// }
-//
-// ol.progtrckr li.progtrckr-todo:before {
-// 	color: white;
-// 	content: counter(step);
-// 	counter-increment: step;
-// 	width: 35px;
-// 	height: 35px;
-// 	line-height: 30px;
-// 	border: 3px solid #C10310;
-// 	border-radius: 100%;
-// 	display: block;
-// 	text-align: center;
-// 	margin: 0 auto 10px auto;
-// 	background-color: #C10310;
-// }
-//
-// ol.progtrckr li.progtrckr-doing:before {
-// 	color: #C10310;
-// 	content: counter(step);
-// 	counter-increment: step;
-// 	width: 35px;
-// 	height: 35px;
-// 	line-height: 30px;
-// 	border: 3px solid #C10310;
-// 	box-shadow: 2px 2px 2px #5E5E5E;
-// 	border-radius: 100%;
-// 	display: block;
-// 	text-align: center;
-// 	margin: 0 auto 10px auto;
-// 	background-color: #fff;
-// }
-//
-// ol.progtrckr li.progtrckr-done:before {
-// 	color: #C10310;
-// 	content: '\2713';
-// 	counter-increment: step;
-// 	width: 35px;
-// 	height: 35px;
-// 	line-height: 30px;
-// 	border: 3px solid white;
-// 	box-shadow: 2px 2px 2px #5E5E5E;
-// 	border-radius: 100%;
-// 	display: block;
-// 	text-align: center;
-// 	margin: 0 auto 10px auto;
-// 	background-color: white;
-// }
-//
-.progress-btn-container {
-	margin-bottom: 3%;
-	border-color: transparent;
+	width: 60%;
+	margin-bottom: 0%;
+	margin-left: 20%;
 }
 
-.progress-nxt-btn {
-	float: right;
-
-	&:hover {
-		background-color: #DC3545;
-	}
-}
-
-.progress-back-btn {
+.back-btn-container {
 	float: left;
+	display: inline;
+	margin: 1% 0 1% 21%;
+	border-style: none;
 }
 
-.ant-btn {
-	border-radius: 10%;
+.next-btn-container {
+	float: right;
+	display: inline;
+	margin: 1% 21% 1% 0;
 }
 
 //HeaderNavBar
@@ -490,21 +390,6 @@ h1.page-head {
 	padding-top: 100px;
 }
 
-@media (max-width: 1080px) {
-	.signup-title {
-		left: 80px;
-	}
-
-	.line-separator {
-		left: 80px;
-	}
-
-	.bold-line-separator {
-		position: absolute;
-		left: 80px;
-	}
-}
-
 @media (max-width: 768px) {
 	.top-nav {
 		height: 80px;
@@ -567,16 +452,36 @@ h1.page-head {
 		padding-top: 90px;
 	}
 
-	.progtrckr em {
-		display: inline;
+	.signup-title {
+		left: calc(0.07*100vw)!important;
 	}
 
-	.progtrckr li span {
-		display: none;
+	.line-separator {
+		left: calc(0.07*100vw)!important;
 	}
 
+	.bold-line-separator {
+		left: calc(0.07*100vw)!important;
+	}
+}
+
+@media (max-width: 600px) {
 	.title-container {
 		display: none;
+	}
+
+	.next-btn-container {
+		position: absolute;
+		left: 29%;
+		height: 2%;
+		width: 5%;
+	}
+
+	.back-btn-container {
+		position: absolute;
+		height: 2%;
+		width: 5%;
+		left: 33%;
 	}
 }
 
@@ -681,68 +586,4 @@ input[type=password] {
 
 .row {
     text-align: left;
-}
-
-#Next {
-	text-align: center;
-	margin-top: 50px;
-	margin-left: auto;
-}
-
-select[type=text] {
-    background-color: #E5E5E5;
-    vertical-align: middle;
-    margin-top: 1px;
-}
-
-#underscore {
-	text-align: center;
-	text-decoration: underline;
-	margin-top: 50px;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#register {
-	text-align: center;
-	margin-top: 15px;
-	margin-bottom: 25px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.bigform {
-	border: 2px solid red;
-	padding-top: 0px;
-	padding-bottom: 30px;
-	margin-top: 0px;
-}
-
-#experience {
-    background-color: red;
-	border: 1px white red;
-	padding-left: auto;
-	padding-right: auto;
-	padding-top: 1px;
-	height: 100%;
-	margin: 0;
-}
-
-#first {
-	text-align: left;
-	padding-top: 2px;
-	padding-left: auto;
-	margin-left: 237px;
-	margin-right: 0px;
-	background-color: red;
-	border: 1px solid red;
-}
-
-#register {
-	background-color: red;
-
-.progress-back-button {
-	text-align: center;
-	margin-top: 100px;
 }

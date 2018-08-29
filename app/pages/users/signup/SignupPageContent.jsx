@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button'
 import SignupPage from './SignupPage'
 import { signup } from '../../../actions/userActions'
-import { Steps } from 'antd'
+import { Steps, Button } from 'antd'
 
 const Step = Steps.Step
 
 class SignupPageContent extends Component {
 	constructor(props) {
-		super(props) 
+		super(props)
 		this.state = {
 			currentStep: 0
 		}
@@ -21,20 +20,17 @@ class SignupPageContent extends Component {
 
 	getStepContents() {
 		return [
-			['Basic Information', 
+			['Basic Information',
 			<SignupPage
-				userSignupState={this.props.userSignupState}
-				count="1"/>],
-			['Education Background', 
+				userSignupState={this.props.userSignupState}/>],
+			['Education Background',
 				<SignupPage
-				userSignupState={this.props.userSignupState}
-				count="2"/>],
-			['Current & Past Experience', 
+				userSignupState={this.props.userSignupState}/>],
+			['Current & Past Experience',
 				<SignupPage
-				userSignupState={this.props.userSignupState}
-				count="3"/>]]
+				userSignupState={this.props.userSignupState}/>]]
 	}
-	
+
 	next() {
 		const newStep = this.state.currentStep + 1
 		if (newStep <= this.getStepContents().length - 1) {
@@ -59,32 +55,34 @@ class SignupPageContent extends Component {
 			? <Button type="primary"
 				size="large"
 				onClick={this.signup.bind(this)}
-				className="progress-nxt-btn">
+				className="col-xs-12">
 				Register
 			</Button>
 			: <Button type="primary"
 				size="large"
 				onClick={this.next.bind(this)}
-				className="progress-nxt-btn">
+				className="col-xs-12">
 				Next&gt;
 			</Button>
 		return (
-			<div>
+			<div className="progress-outer-container">
 				<Steps current={ this.state.currentStep }>
 					{ this.getStepContents().map((data, i) => <Step key={i} title={data[0]}/>) }
 				</Steps>
 				<div className="progress-container" >
-					{content} 
+					{ content }
 				</div>
-				<div className="progress-btn-container">
+				<div className="back-btn-container">
 					<Button type="primary"
 						size="large"
 						disabled={ this.state.currentStep === 0 }
-						onClick={this.previous.bind(this)}
-						className="progress-prev-btn">
+						onClick={ this.previous.bind(this) }
+						className="col-xs-12">
 						&lt;Back
 					</Button>
-					{nextButton}
+				</div>
+				<div className="next-btn-container">
+					{ nextButton }
 				</div>
 			</div>
 		)
