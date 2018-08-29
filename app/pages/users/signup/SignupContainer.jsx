@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import SignupPageTitle from './SignupPageTitle'
 import SignupPageTitleBar from './SignupPageTitleBar'
-import SignupPageProgressBar from "./SignupPageProgressBar"
+import SignupPageContent from "./SignupPageContent"
 
 class SignupContainer extends Component {
     render() {
@@ -12,7 +12,7 @@ class SignupContainer extends Component {
                     <SignupPageTitleBar />
                 </div>
                 <div className="progress-bar-container">
-                    <SignupPageProgressBar />
+                    <SignupPageContent/>
                 </div>
             </div>
         )
