@@ -5,7 +5,7 @@ import SignupPage from './SignupPage'
 import {signup} from '../../../actions/userActions'
 import SignupPageTitle from './SignupPageTitle'
 import SignupPageTitleBar from './SignupPageTitleBar'
-import SignupPageProgressBar from "./SignupPageProgressBar"
+import SignupPageContent from "./SignupPageContent"
 
 class SignupContainer extends Component {
     render() {
@@ -16,10 +16,9 @@ class SignupContainer extends Component {
                     <SignupPageTitleBar />
                     <SignupPageProgressBar/>
                 </div>
-                <SignupPage
-                    userSignupState={this.props.userSignupState}
-                    signupHandler={this.signupHandler.bind(this)}
-                />
+                <div className="progress-bar-container">
+                    <SignupPageContent/>
+                </div>
             </div>
         )
     }
