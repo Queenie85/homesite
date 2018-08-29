@@ -278,19 +278,11 @@ export default class SignupPage extends Component {
 								</div>
 							</div>
 							<div className="row">
-								<button type="submit"
-										disabled={!this.state.signupValid}
-										onClick={this.handleClickSignup.bind(this)}
-										className="margin-bottom-10 btn col-xs-12 btn-danger"
-										id="Next"
-										>
-								Next>
-								</button>
 							</div>
-									<div>
-										<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
-										Sign in</Link>&nbsp;instead.
-									</div>
+								<div>
+									<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
+									Sign in</Link>&nbsp;instead.
+								</div>
 						</form>
 					</div>
 				</div>
