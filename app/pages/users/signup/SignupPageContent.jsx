@@ -10,7 +10,7 @@ class SignupPageContent extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			currentStep: 0
+			currentStep: 0,
 		}
 	}
 
@@ -24,10 +24,10 @@ class SignupPageContent extends Component {
 			<SignupPage
 				userSignupState={this.props.userSignupState}/>],
 			['Education Background',
-				<SignupPage
+			<SignupPage
 				userSignupState={this.props.userSignupState}/>],
 			['Current & Past Experience',
-				<SignupPage
+			<SignupPage
 				userSignupState={this.props.userSignupState}/>]]
 	}
 

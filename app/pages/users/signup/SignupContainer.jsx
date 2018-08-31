@@ -6,7 +6,7 @@ import SignupPageContent from "./SignupPageContent"
 class SignupContainer extends Component {
     render() {
         return (
-            <div className="test">
+            <div>
                 <div className="signup-container">
                     <div className="title-container">
                         <SignupPageTitle />
@@ -14,7 +14,7 @@ class SignupContainer extends Component {
                     </div>
                 </div>
                 <div className="progress-bar-container">
-                    <SignupPageContent/>
+                    <SignupPageContent />
                 </div>
             </div>
         )
