@@ -142,8 +142,10 @@ export default class SignupBasicInfoStep extends Component {
 		if (this.state.consented) {
 			consented = true
 		}
+		let status = this.state.signupValid
 
 		this.props.signupHandler(firstName, lastName, preferredName, phone, email, password, consented)
+		this.props.getStatus(status)
 	}
 
 	render() {
