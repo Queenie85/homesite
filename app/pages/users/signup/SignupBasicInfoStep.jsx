@@ -9,7 +9,7 @@ import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, handleInva
 import loadingImage from '../../../assets/img/loading.gif'
 import PropTypes from 'prop-types'
 
-export default class SignupPage extends Component {
+export default class SignupBasicInfoStep extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {

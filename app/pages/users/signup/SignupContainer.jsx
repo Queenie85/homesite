@@ -1,24 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import SignupPage from './SignupPage'
+import SignupExperienceStep from './SignupExperienceStep'
 import {signup} from "../../../actions/userActions"
 
 class SignupContainer extends Component {
 	render() {
 		return (
 			<div>
-				<SignupPage
+				<SignupExperienceStep
 					userSignupState={this.props.userSignupState}
 					signupHandler={this.signupHandler.bind(this)}
 				/>
 			</div>
 		)
 	}
-
-	signupHandler(firstName, lastName, preferredName, phone, email, password, consented) {
-		this.props.dispatch(signup(firstName, lastName, preferredName, phone, email, password, consented))
+	signupHandler(industry, role, location, yearOfExperience) {
+		this.props.dispatch(signup(industry, role, location, yearOfExperience))
 	}
-
 }
 
 function select(state) {

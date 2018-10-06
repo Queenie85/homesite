@@ -439,7 +439,7 @@ h1.page-head {
 form {
 	text-align: center;
 	padding: 10px;
-	padding-top: 100px;
+	padding-top: 75px;
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
@@ -448,14 +448,15 @@ form {
 label {
     padding: 5 10px;
     vertical-align: right;
-    margin-bottom: 0.5px;
+    margin-bottom: 0px;
     margin-top: 15px;
+    padding-bottom: 1px
 }
 
 input[type=text] {
     background-color: #E5E5E5;
     vertical-align: middle;
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 input[type=email] {
@@ -476,4 +477,58 @@ input[type=password] {
 	text-align: center;
 	margin-top: 50px;
 	margin-left: auto;
+}
+
+select[type=text] {
+    background-color: #E5E5E5;
+    vertical-align: middle;
+    margin-top: 1px;
+}
+
+#underscore {
+	text-align: center;
+	text-decoration: underline;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#register {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bigform {
+	border: 2px solid red;
+	padding-top: 0px;
+	padding-bottom: 30px;
+	margin-top: 0px;
+}
+
+#experience {
+    background-color: red;
+	border: 1px white red;
+	padding-left: auto;
+	padding-right: auto;
+	padding-top: 1px;
+	height: 100%;
+	margin: 0;
+}
+
+#first {
+	text-align: left;
+	padding-top: 2px;
+	padding-left: auto;
+	margin-left: 237px;
+	margin-right: 0px;
+	background-color: red;
+	border: 1px solid red;
+}
+
+#register {
+	background-color: red;
 }
