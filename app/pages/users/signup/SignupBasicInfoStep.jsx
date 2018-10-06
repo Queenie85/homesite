@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 import { cookieDomain, baseUrl } from '../../../config/config'
 import { isValidInternalURL } from '../../../util/validationHelpers'
-import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, 
-				handleInvalidPhoneForSignUp } 
+import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, handleInvalidFirstNameForSignUp, 
+				handleInvalidLastNameForSignUp, handleInvalidPhoneForSignUp } 
 				from "../../../util/invalidInputHelpers.js"
 import loadingImage from '../../../assets/img/loading.gif'
 import PropTypes from 'prop-types'
 
-export default class SignupPage extends Component {
+export default class SignupBasicInfoStep extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -69,12 +69,16 @@ export default class SignupPage extends Component {
 		this.setState({
 			firstName: event.target.value,
 		})
+		handleInvalidFirstNameForSignUp(this.state, event.target.value, 
+			"First name is required.",)
 	}
 
 	handleChangeLastName(event) {
 		this.setState({
 			lastName: event.target.value,
 		})
+		handleInvalidLastNameForSignUp(this.state, event.target.value, 
+			"Last field is required.",)
 	}
 
 	handleChangePreferredName(event) {
@@ -87,9 +91,8 @@ export default class SignupPage extends Component {
 		this.setState({
 			phone: event.target.value,
 		})
-		handleInvalidPhoneForSignUp(this.state, event.target.value, 
-			"The phone you provide is invalid format.", 
-			"The phone field is required.",)
+		handleInvalidPhoneForSignUp(this.state, event.target.value,
+			"Phone number is required.",)
 	}
 
 	handleChangeEmail(event) {
@@ -98,7 +101,7 @@ export default class SignupPage extends Component {
 		})
 		handleInvalidEmailForSignUp(this.state, event.target.value, 
 			"The email you provide is invalid format.", 
-			"The email field is required.",)
+			"Email address is required.",)
 	}
 
 	handleChangePassword(event) {
@@ -107,7 +110,7 @@ export default class SignupPage extends Component {
 		})
 		handleInvalidPasswordForSignUp(this.state, event.target.value,
 			"The password you provide is invalid.", 
-			"The password field is required.",)
+			"Password is required.",)
 	}
 
 	handleChangeAgreement(event) {
@@ -159,49 +162,63 @@ export default class SignupPage extends Component {
 			<div className="signup-page">
 				<div className="signup-outer-container">
 					<div className="container clearfix">
-						<div className="signup-form col-md-offset-3 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12">
-							<div>
-								<div className="signup-exception margin-bottom-30">
-									<span>{signupMsg}</span>
+						<div className="signup-exception margin-bottom-30">
+							<span>{signupMsg}</span>
+						</div>
+						<form>
+							<div className="row">
+								<div className="col-lg-6 col-md-6">
+									<label>First Name
+										<label className="required-star">*</label>
+									</label>
+									<input aria-label="firstname" 
+											className="border-white form-control transparent-input form-user" 
+											name="firstname" 
+											placeholder="First Name"
+											type="text"
+											value={this.state.value}
+											onChange={this.handleChangeFirstName.bind(this)} />
+											<div className="help-block inline-error">
+												<span>{this.state.errorMsgForSignUp["firstName"]}</span>
+											</div>
+											<span></span>
 								</div>
-								<form id="signupForm" name="signupForm" className="form-invite margin-top-10">
-									<div className="margin-bottom-30 form-group">
-										<input aria-label="firstname" 
-												className="border-white form-control transparent-input form-user" 
-												name="firstname" 
-												placeholder="First Name"
-												type="text" 
-												value={this.state.value} 
-												onChange={this.handleChangeFirstName.bind(this)} />
-										<p className="note">Please provide your first name.</p>
-										<div className="help-block inline-error">
-											<span>{this.state.errorMsgForSignUp["firstname"]}</span>
-										</div>
-									</div>
-									<div className="margin-bottom-30 form-group">
-										<input aria-label="lastname" 
-												className="border-white form-control transparent-input form-user" 
-												name="lastname" 
-												placeholder="Last Name"
-												type="text" 
-												value={this.state.value} 
-												onChange={this.handleChangeLastName.bind(this)} />
-										<p className="note">Please provide your last name.</p>
-										<div className="help-block inline-error">
-											<span>{this.state.errorMsgForSignUp["username"]}</span>
-										</div>
-									</div>
-									<div className="margin-bottom-30 form-group">
-										<input aria-label="preferredName" 
+								<div className="col-lg-6 col-md-6">	
+									<label>Last Name
+										<label className="required-star">*</label>
+									</label>
+									<input aria-label="lastname" 
+											className="border-white form-control transparent-input form-user" 
+											name="lastname" 
+											placeholder="Last Name"
+											type="text" 
+											value={this.state.value} 
+											onChange={this.handleChangeLastName.bind(this)} />
+											<div className="help-block inline-error">
+												<span>{this.state.errorMsgForSignUp["lastName"]}</span>
+											</div>
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-lg-6 col-md-6">
+									<label>Preferred Name
+										<label id="nonrequired-star">*</label>
+									</label>
+									<input aria-label="preferredName" 
 												className="border-white form-control transparent-input form-user" 
 												name="preferredName" 
 												placeholder="Preferred Name"
 												type="text" 
 												value={this.state.value} 
 												onChange={this.handleChangePreferredName.bind(this)} />
-										<p className="note">Please provide your preferred name, if it's not your first name.</p>
-									</div>
-									<div className="margin-bottom-30 form-group">
+												<div className="help-block inline-error">
+													<span>{this.state.errorMsgForSignUp["Preferred name"]}</span>
+												</div>
+								</div>
+								<div className="col-lg-6 col-md-6">
+										<label>Phone Number
+											<label className="required-star">*</label>
+										</label>
 										<input aria-label="phone" 
 												className="border-white form-control transparent-input form-user" 
 												name="phone" 
@@ -209,12 +226,16 @@ export default class SignupPage extends Component {
 												type="text" 
 												value={this.state.value} 
 												onChange={this.handleChangePhone.bind(this)} />
-										<p className="note">Please provide your phone number. We will reach you for coffee chat matching.</p>
-										<div className="help-block inline-error">
-											<span>{this.state.errorMsgForSignUp["phone"]}</span>
-										</div>
-									</div>
-									<div className="margin-bottom-30 form-group">
+												<div className="help-block inline-error">
+													<span>{this.state.errorMsgForSignUp["phone"]}</span>
+												</div>
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-lg-6 col-md-6">
+									<label>Email
+										<label className="required-star">*</label>
+									</label>
 										<input aria-label="email" 
 												className="border-white form-control transparent-input" 
 												name="email" 
@@ -222,13 +243,15 @@ export default class SignupPage extends Component {
 												type="email" 
 												value={this.state.value} 
 												onChange={this.handleChangeEmail.bind(this)} />
-										<p className="note">Please provide your email. This will be used to identify your account.</p>
 										<div className="help-block inline-error">
 											<span>{this.state.errorMsgForSignUp["email"]}</span>
-										</div>
-									</div>
-									<div className="margin-bottom-30 form-group">
-										<input aria-label="password" 
+										</div>	
+								</div>
+								<div className="col-lg-6 col-md-6">
+									<label>Password
+										<label className="required-star">*</label>
+									</label>
+									<input aria-label="password" 
 												className="border-white form-control transparent-input" 
 												name="password" 
 												placeholder="Password"
@@ -236,45 +259,26 @@ export default class SignupPage extends Component {
 												type="password" 
 												value={this.state.value} 
 												onChange={this.handleChangePassword.bind(this)} />
-										<p className="note">Please provide a password.</p>
 										<div className="help-block inline-error">
 											<span>{this.state.errorMsgForSignUp["password"]}</span>
 										</div>
-									</div>
-									<div className="row">
-										<div className="form-group col-xs-12 text_left">
-											<input type="checkbox" 
-													checked={this.state.checked} 
-													onChange={this.handleChangeAgreement.bind(this)} />
-											<span className="privacy-text">
-												By Checking this box, you agree to our provacy terms listed below.
-											</span>
-										</div>
-									</div>
-									<div className="">
-										<button type="submit" 
-												disabled={!this.state.signupValid} 
-												onClick={this.handleClickSignup.bind(this)} 
-												className="margin-bottom-10 btn col-xs-12 btn-danger">
-											<span>Register</span>
-										</button>
-										<div>
-											<p>By clicking on 'Register' above, you consent to agree our&nbsp;
-												<a href="UserAgreement_v1.pdf">
-													User Agreement</a>  
-													&nbsp;and&nbsp;
-												<a href="Privacy_v1.pdf">
-													&nbsp;Privacy terms.</a>.
-											</p>
-										</div>
-									</div>
+								</div>
+							</div>
+							<div className="row">
+								<button type="submit" 
+										disabled={!this.state.signupValid} 
+										onClick={this.handleClickSignup.bind(this)} 
+										className="margin-bottom-10 btn col-xs-12 btn-danger"
+										id="Next"
+										>
+								Next>
+								</button>
+							</div>
 									<div>
 										<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
 										Sign in</Link>&nbsp;instead.
 									</div>
-								</form>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
