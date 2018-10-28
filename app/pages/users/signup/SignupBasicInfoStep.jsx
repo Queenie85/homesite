@@ -191,7 +191,7 @@ export default class SignupBasicInfoStep extends Component {
 						<div className="signup-exception margin-bottom-30">
 							<span>{signupMsg}</span>
 						</div>
-						<form>
+						<form className="form-container">
 							<div className="row">
 								<div className="col-lg-6 col-md-6">
 									<label>First Name
@@ -294,7 +294,6 @@ export default class SignupBasicInfoStep extends Component {
 								<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
 									Sign in</Link>&nbsp;instead.
 							</div>
-							<div>{this.state.password}</div>
 						</form>
 					</div>
 				</div>
