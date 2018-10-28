@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import SignupPage from './SignupPage'
+import SignupBasicInfoStep from './SignupBasicInfoStep'
+import SignupEducationStep from './SignupEducationStep'
+import SignupExperienceStep from './SignupExperienceStep'
 import { signup } from '../../../actions/userActions'
 import { Steps, Button } from 'antd'
 
@@ -11,6 +13,15 @@ class SignupPageContent extends Component {
 		super(props)
 		this.state = {
 			currentStep: 0,
+			isValidated: 0,
+		}
+	}
+
+	inputSatisfied(value){
+		if (value === true) {
+			this.setState({
+				isValidated: 1
+			})
 		}
 	}
 
@@ -21,20 +32,23 @@ class SignupPageContent extends Component {
 	getStepContents() {
 		return [
 			['Basic Information',
-			<SignupPage
-				userSignupState={this.props.userSignupState}/>],
+			<SignupBasicInfoStep
+				userSignupState={this.props.userSignupState}
+				getMsg={this.inputSatisfied.bind(this)}/>],
 			['Education Background',
-			<SignupPage
+			<SignupEducationStep
 				userSignupState={this.props.userSignupState}/>],
 			['Current & Past Experience',
-			<SignupPage
+			<SignupExperienceStep
 				userSignupState={this.props.userSignupState}/>]]
 	}
 
 	next() {
 		const newStep = this.state.currentStep + 1
-		if (newStep <= this.getStepContents().length - 1) {
-			this.setState({currentStep: newStep})
+		if (this.state.isValidated === 1) {
+			if (newStep <= this.getStepContents().length - 1) {
+				this.setState({currentStep: newStep})
+			}
 		}
 	}
 
@@ -75,7 +89,7 @@ class SignupPageContent extends Component {
 				<div className="back-btn-container">
 					<Button type="primary"
 						size="large"
-						disabled={ this.state.currentStep === 0 }
+						disabled={ this.state.currentStep === 0}
 						onClick={ this.previous.bind(this) }
 						className="col-xs-12">
 						&lt;Back

@@ -32,7 +32,7 @@ body.noScroll {
 }
 
 .signup-outer-container {
-	min-height: 425px;
+	min-height: 360px;
 }
 
 .signup-title {
@@ -93,14 +93,14 @@ body.noScroll {
 .back-btn-container {
 	float: left;
 	display: inline;
-	margin: 1% 0 1% 21%;
+	margin: 1% 0 1% 17.5%;
 	border-style: none;
 }
 
 .next-btn-container {
 	float: right;
 	display: inline;
-	margin: 1% 21% 1% 0;
+	margin: 1% 17.5% 1% 0;
 }
 
 //HeaderNavBar
@@ -393,6 +393,19 @@ h1.page-head {
 	padding-top: 100px;
 }
 
+.experienceBarContainer {
+	display: table;
+}
+
+.experienceTitle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#experience {
+	margin-left: 20%;
+}
+
 @media (max-width: 768px) {
 	.top-nav {
 		height: 80px;
@@ -557,8 +570,7 @@ h1.page-head {
 form {
 	text-align: center;
 	padding: 10px;
-	padding-top: 100px;
-	width: 60%;
+	max-width: 70%;
 	margin-left: auto;
 	margin-right: auto;
 }

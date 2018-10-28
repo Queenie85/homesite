@@ -44,14 +44,15 @@ export default class SignupBasicInfoStep extends Component {
 	}
 
 	isValidated () {
-		if (this.state.firstName === "" || this.state.lastName === "" ||
-			this.state.phone === "" || this.state.email === "" ||
-			this.state.password === "") {
-			return false
+		if (this.state.firstName !== "" & this.state.lastName !== "" &
+			this.state.phone !== "" & this.state.email !== "" &
+			this.state.password !== "") {
+			this.setState({
+				signedUpValid: true,
+			})
 		}
-		return true
+		return this.state.signupValid
 	}
-
 
 	startTimer() {
 		if (this.timer === 0) {
@@ -80,14 +81,19 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			firstName: event.target.value,
 		})
+		this.isValidated()
+		this.props.getMsg(this.state.signupValid)
 		handleInvalidFirstNameForSignUp(this.state, event.target.value,
 			"First name is required.",)
+
 	}
 
 	handleChangeLastName(event) {
 		this.setState({
 			lastName: event.target.value,
 		})
+		this.isValidated()
+		this.props.getMsg(this.state.signupValid)
 		handleInvalidLastNameForSignUp(this.state, event.target.value,
 			"Last name is required.",)
 	}
@@ -102,6 +108,8 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			phone: event.target.value,
 		})
+		this.isValidated()
+		this.props.getMsg(this.state.signupValid)
 		handleInvalidPhoneForSignUp(this.state, event.target.value,
 			"Phone number is required.",)
 	}
@@ -110,6 +118,8 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			email: event.target.value,
 		})
+		this.isValidated()
+		this.props.getMsg(this.state.signupValid)
 		handleInvalidEmailForSignUp(this.state, event.target.value,
 			"The email you provide is invalid format.",
 			"Email address is required.",)
@@ -119,6 +129,8 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			password: event.target.value,
 		})
+		this.isValidated()
+		this.props.getMsg(this.state.signupValid)
 		handleInvalidPasswordForSignUp(this.state, event.target.value,
 			"The password you provide is invalid.",
 			"Password is required.",)
@@ -278,12 +290,11 @@ export default class SignupBasicInfoStep extends Component {
 										</div>
 								</div>
 							</div>
-							<div className="row">
-							</div>
-								<div className="signin-link">
-									<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
+							<div className="signin-link">
+								<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
 									Sign in</Link>&nbsp;instead.
-								</div>
+							</div>
+							<div>{this.state.password}</div>
 						</form>
 					</div>
 				</div>
@@ -298,7 +309,7 @@ export default class SignupBasicInfoStep extends Component {
 	}
 }
 
-SignupPage.propTypes = {
+SignupBasicInfoStep.propTypes = {
 	userSignupState: PropTypes.shape({
 		signedUp: PropTypes.bool.isRequired,
 		signupMsg: PropTypes.string.isRequired,

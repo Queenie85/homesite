@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import SignupExperienceStep from './SignupExperienceStep'
-import SignupPage from './SignupPage'
 import {signup} from '../../../actions/userActions'
 import SignupPageTitle from './SignupPageTitle'
 import SignupPageTitleBar from './SignupPageTitleBar'

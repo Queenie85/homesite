@@ -38,7 +38,7 @@ export default class SignupEducationStep extends Component {
         this.setState({
             countdownSeconds: countdownSeconds,
         })
-        if (countdownSeconds === 0) { 
+        if (countdownSeconds === 0) {
             window.clearInterval(this.timer)
             let callbackURL = this.props.query === undefined ? null : decodeURIComponent(this.props.query)
             if (isValidInternalURL(callbackURL, cookieDomain)) {
@@ -47,6 +47,24 @@ export default class SignupEducationStep extends Component {
                 window.location.href = baseUrl + 'users/signin'
             }
         }
+    }
+
+    handleChangeSchool(event) {
+		this.setState({
+			school: event.target.value,
+		})
+	}
+
+    handleChangeYearOfGraduation(event) {
+        this.setState({
+            yearOfGraduation: event.target.value,
+        })
+    }
+
+    handleChangeMajor(event) {
+        this.setState({
+            major: event.target.value,
+        })
     }
 
 
@@ -86,13 +104,13 @@ export default class SignupEducationStep extends Component {
                             <div className="row">
                                 <div className="col-lg-12 col-md-12">
                                     <label>School</label>
-                                    <input aria-label="school" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="school" 
+                                    <input aria-label="school"
+                                            className="border-white form-control transparent-input form-user"
+                                            name="school"
                                             placeholder="School"
                                             type="text"
                                             value={this.state.value}
-                                            onChange={this.state.school}
+                                            onChange={this.handleChangeSchool.bind(this)}
                                             />
                                             <div className="help-block inline-error">
                                             </div>
@@ -102,13 +120,13 @@ export default class SignupEducationStep extends Component {
                             <div className="row">
                                 <div className="col-lg-6 col-md-6">
                                     <label>Year of Graduation</label>
-                                    <select aria-label="year of graduation" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="year of graduation" 
+                                    <select aria-label="year of graduation"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="year of graduation"
                                             placeholder="Year of Graduation"
-                                            type="text" 
+                                            type="text"
                                             value={this.state.value}
-                                            onChange={this.state.yearOfGraduation} 
+                                            onChange={this.handleChangeYearOfGraduation.bind(this)}
                                             >
                                         <option value="0" selected disabled>Year</option>
                                         <option value="2018">2018</option>
@@ -148,22 +166,22 @@ export default class SignupEducationStep extends Component {
                             <div className="row">
                                 <div className="col-lg-12 col-md-12">
                                     <label>Major</label>
-                                    <input aria-label="major" 
-                                                className="border-white form-control transparent-input" 
-                                                name="major" 
+                                    <input aria-label="major"
+                                                className="border-white form-control transparent-input"
+                                                name="major"
                                                 placeholder="Major"
-                                                type="text" 
+                                                type="text"
                                                 value={this.state.value}
-                                                onChange={this.state.major}
+                                                onChange={this.handleChangeMajor.bind(this)}
                                                 />
                                                 <div className="help-block inline-error">
-                                                </div> 
+                                                </div>
                                 </div>
                             </div>
-                                    <div>
-                                        <br/>Already have an account with us?&nbsp;<Link to="/users/signin">
-                                        Sign in</Link>&nbsp;instead.
-                                    </div>
+                            <div>
+                                <br/>Already have an account with us?&nbsp;<Link to="/users/signin">
+                                    Sign in</Link>&nbsp;instead.
+                            </div>
                         </form>
                     </div>
                 </div>

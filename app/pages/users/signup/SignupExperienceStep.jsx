@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { cookieDomain, baseUrl } from '../../../config/config'
 import { isValidInternalURL } from '../../../util/validationHelpers'
@@ -40,7 +40,7 @@ export default class SignupExperienceStep extends Component {
         this.setState({
             countdownSeconds: countdownSeconds,
         })
-        if (countdownSeconds === 0) { 
+        if (countdownSeconds === 0) {
             window.clearInterval(this.timer)
             let callbackURL = this.props.query === undefined ? null : decodeURIComponent(this.props.query)
             if (isValidInternalURL(callbackURL, cookieDomain)) {
@@ -59,6 +59,29 @@ export default class SignupExperienceStep extends Component {
         this.props.signupHandler(industry, role, location, yearOfExperience)
     }
 
+    handleChangeIndustry(event) {
+        this.setState({
+            industry: event.target.value,
+        })
+    }
+
+    handleChangeRole(event) {
+        this.setState({
+            role: event.target.value,
+        })
+    }
+
+    handleChangeLocation(event) {
+        this.setState({
+            location: event.target.value,
+        })
+    }
+
+    handleChangeYearOfExperience(event) {
+        this.setState({
+            yearOfExperience: event.target.value,
+        })
+    }
 
 
     render() {
@@ -92,24 +115,25 @@ export default class SignupExperienceStep extends Component {
                         <div className="signup-exception margin-bottom-30">
                             <span>{signupMsg}</span>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-2 col-md-2" id="first">
+                        <div className="row margin-top-10 border-secondary experienceBarContainer">
+                            <div className="experienceTitle">
                                 Experience
                             </div>
-                                <button className="w3-button w3-xlarge w3-black" id="experience">
-                                +</button>
+                            <button className="w3-button w3-xlarge w3-black" id="experience">
+                                +
+                            </button>
                         </div>
                         <form className="bigform">
                             <div className="row">
                                 <div className="col-lg-12 col-md-12">
                                     <label>Industry</label>
-                                    <select aria-label="industry" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="industry" 
+                                    <select aria-label="industry"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="industry"
                                             placeholder="Industry"
                                             type="text"
                                             value={this.state.value}
-                                            onChange={this.state.industry}
+                                            onChange={this.handleChangeIndustry.bind(this)}
                                             >
                                         <option value="" selected disabled>Industry</option>
                                         <option value="Finance">Finance</option>
@@ -129,13 +153,13 @@ export default class SignupExperienceStep extends Component {
                             <div className="row">
                                 <div className="col-lg-12 col-md-12">
                                     <label>Role</label>
-                                    <select aria-label="role" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="role" 
+                                    <select aria-label="role"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="role"
                                             placeholder="role"
-                                            type="text" 
+                                            type="text"
                                             value={this.state.value}
-                                            onChange={this.state.role} 
+                                            onChange={this.handleChangeRole.bind(this)}
                                             >
                                         <option value="" selected disabled>role</option>
                                         <option value="Software engineer">Software engineer</option>
@@ -156,13 +180,13 @@ export default class SignupExperienceStep extends Component {
                             <div className="row">
                                 <div className="col-lg-6 col-md-6">
                                     <label>Location</label>
-                                    <select aria-label="location" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="location" 
+                                    <select aria-label="location"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="location"
                                             placeholder="location"
-                                            type="text" 
+                                            type="text"
                                             value={this.state.value}
-                                            onChange={this.state.location} 
+                                            onChange={this.handleChangeLocation.bind(this)}
                                             >
                                         <option value="" selected disabled>location</option>
                                         <option value="Beijing">Beijing</option>
@@ -180,17 +204,17 @@ export default class SignupExperienceStep extends Component {
                                         <option value="Montreal">Montreal</option>
                                     </select>
                                         <div className="help-block inline-error">
-                                        </div> 
+                                        </div>
                                 </div>
                                 <div className="col-lg-4 col-md-4">
                                     <label>Year of Experience</label>
-                                    <select aria-label="yearOfExperience" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="yearOfExperience" 
+                                    <select aria-label="yearOfExperience"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="yearOfExperience"
                                             placeholder="year"
-                                            type="text" 
+                                            type="text"
                                             value={this.state.value}
-                                            onChange={this.state.yearOfExperience} 
+                                            onChange={this.handleChangeYearOfExperience.bind(this)}
                                             >
                                         <option value="" selected disabled>Year</option>
                                         <option value="2018">2018</option>
@@ -215,15 +239,15 @@ export default class SignupExperienceStep extends Component {
                                         <option value="1999">1999</option>
                                     </select>
                                         <div className="help-block inline-error">
-                                        </div> 
+                                        </div>
                                 </div>
                                 <div className="col-lg-2 col-md-2">
                                     <label>Month</label>
-                                    <select aria-label="month" 
-                                            className="border-white form-control transparent-input form-user" 
-                                            name="Month" 
+                                    <select aria-label="month"
+                                            className="border-secondary form-control transparent-input form-user"
+                                            name="Month"
                                             placeholder="month"
-                                            type="text" 
+                                            type="text"
                                             value={this.state.value}
                                             >
                                         <option value="" selected disabled>Month</option>
@@ -242,20 +266,11 @@ export default class SignupExperienceStep extends Component {
                                     </select>
                                 </div>
                             </div>
+                            <div>
+                                <br/>Already have an account with us?&nbsp;<Link to="/users/signin">
+                                    Sign in</Link>&nbsp;instead.
+                            </div>
                         </form>
-                        <div className="row">
-                            <div id="underscore">Terms and conditions</div>
-                        </div>
-                        <div className="row">
-                            <button type="submit" 
-                                    disabled={!this.state.signupValid} 
-                                    onClick={this.handleClickSignup.bind(this)} 
-                                    className="margin-bottom-10 btn col-xs-12 btn-danger"
-                                    id="register"
-                                    >
-                            Register
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
