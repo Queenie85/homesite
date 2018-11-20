@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {signup} from '../../../actions/userActions'
+// import {connect} from 'react-redux'
+// import {signup} from '../../../actions/userActions'
 import SignupPageTitle from './SignupPageTitle'
 import SignupPageTitleBar from './SignupPageTitleBar'
 import SignupPageContent from "./SignupPageContent"
 
-class SignupContainer extends Component {
+export default class SignupContainer extends Component {
     render() {
         return (
             <div>
@@ -16,22 +16,24 @@ class SignupContainer extends Component {
                     </div>
                 </div>
                 <div className="progress-bar-container">
-                    <SignupPageContent />
+                    <SignupPageContent
+                        // signupHandler = {this.signupHandler.bind(this)}
+                        userSignupState = {this.props.userSignupState}/>
                 </div>
             </div>
         )
     }
 
-    signupHandler(firstName, lastName, preferredName, phone, email, password, consented) {
-        this.props.dispatch(signup(firstName, lastName, preferredName, phone, email, password, consented))
-    }
+    // signupHandler(firstName, lastName, preferredName, phone, email, password, consented) {
+    //     this.props.dispatch(signup(firstName, lastName, preferredName, phone, email, password, consented))
+    // }
 
 }
 
-function select(state) {
-    return {
-        userSignupState: state.userSignupState
-    }
-}
+// function select(state) {
+//     return {
+//         userSignupState: state.userSignupState
+//     }
+// }
 
-export default connect(select)(SignupContainer)
+// export default connect(select)(SignupContainer)

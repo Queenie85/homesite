@@ -5,6 +5,7 @@ import { cookieDomain, baseUrl } from '../../../config/config'
 import { isValidInternalURL } from '../../../util/validationHelpers'
 import loadingImage from '../../../assets/img/loading.gif'
 import PropTypes from 'prop-types'
+import { Button } from 'antd'
 
 export default class SignupEducationStep extends Component {
     constructor(props) {
@@ -67,7 +68,11 @@ export default class SignupEducationStep extends Component {
         })
     }
 
+    handleClickNext(event) {
+		event.preventDefault()
 
+		this.props.next()
+	}
 
     render() {
         let { userSignupState } = this.props
@@ -181,6 +186,22 @@ export default class SignupEducationStep extends Component {
                             <div>
                                 <br/>Already have an account with us?&nbsp;<Link to="/users/signin">
                                     Sign in</Link>&nbsp;instead.
+                            </div>
+                            <div className="back-btn-container">
+                                <Button type="primary"
+                                    size="large"
+                                    onClick={ this.props.previous }
+                                    className="col-xs-12">
+                                    &lt;Back
+                                </Button>
+                            </div>
+                            <div className="next-btn-container">
+                                <Button type="primary"
+                                    size="large"
+                                    onClick={this.handleClickNext.bind(this)}
+                                    className="col-xs-12">
+                                    Next&gt;
+                                </Button>
                             </div>
                         </form>
                     </div>

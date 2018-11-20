@@ -8,6 +8,7 @@ import { handleInvalidEmailForSignUp, handleInvalidPasswordForSignUp, handleInva
 				from "../../../util/invalidInputHelpers.js"
 import loadingImage from '../../../assets/img/loading.gif'
 import PropTypes from 'prop-types'
+import { Button } from 'antd'
 
 export default class SignupBasicInfoStep extends Component {
 	constructor(props) {
@@ -40,18 +41,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.timer = 0
 		this.startTimer = this.startTimer.bind(this)
 		this.countDown = this.countDown.bind(this)
-		this.isValidated = this.isValidated.bind(this)
-	}
-
-	isValidated () {
-		if (this.state.firstName !== "" & this.state.lastName !== "" &
-			this.state.phone !== "" & this.state.email !== "" &
-			this.state.password !== "") {
-			this.setState({
-				signedUpValid: true,
-			})
-		}
-		return this.state.signupValid
 	}
 
 	startTimer() {
@@ -81,8 +70,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			firstName: event.target.value,
 		})
-		this.isValidated()
-		this.props.getMsg(this.state.signupValid)
 		handleInvalidFirstNameForSignUp(this.state, event.target.value,
 			"First name is required.",)
 
@@ -92,8 +79,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			lastName: event.target.value,
 		})
-		this.isValidated()
-		this.props.getMsg(this.state.signupValid)
 		handleInvalidLastNameForSignUp(this.state, event.target.value,
 			"Last name is required.",)
 	}
@@ -108,8 +93,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			phone: event.target.value,
 		})
-		this.isValidated()
-		this.props.getMsg(this.state.signupValid)
 		handleInvalidPhoneForSignUp(this.state, event.target.value,
 			"Phone number is required.",)
 	}
@@ -118,8 +101,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			email: event.target.value,
 		})
-		this.isValidated()
-		this.props.getMsg(this.state.signupValid)
 		handleInvalidEmailForSignUp(this.state, event.target.value,
 			"The email you provide is invalid format.",
 			"Email address is required.",)
@@ -129,8 +110,6 @@ export default class SignupBasicInfoStep extends Component {
 		this.setState({
 			password: event.target.value,
 		})
-		this.isValidated()
-		this.props.getMsg(this.state.signupValid)
 		handleInvalidPasswordForSignUp(this.state, event.target.value,
 			"The password you provide is invalid.",
 			"Password is required.",)
@@ -142,7 +121,7 @@ export default class SignupBasicInfoStep extends Component {
 		})
 	}
 
-	handleClickSignup(event) {
+	handleClickNext(event) {
 		event.preventDefault()
 		let firstName = this.state.firstName
 		let lastName = this.state.lastName
@@ -154,10 +133,8 @@ export default class SignupBasicInfoStep extends Component {
 		if (this.state.consented) {
 			consented = true
 		}
-		let status = this.state.signupValid
-
 		this.props.signupHandler(firstName, lastName, preferredName, phone, email, password, consented)
-		this.props.getStatus(status)
+		this.props.next()
 	}
 
 	render() {
@@ -293,6 +270,24 @@ export default class SignupBasicInfoStep extends Component {
 							<div className="signin-link">
 								<br/>Already have an account with us?&nbsp;<Link to="/users/signin">
 									Sign in</Link>&nbsp;instead.
+							</div>
+							<div className="back-btn-container">
+								<Button type="primary"
+									size="large"
+									disabled
+									onClick={ this.props.previous }
+									className="col-xs-12">
+									&lt;Back
+								</Button>
+							</div>
+							<div className="next-btn-container">
+								<Button type="primary"
+									size="large"
+									disabled={!this.state.signupValid}
+									onClick={this.handleClickNext.bind(this)}
+									className="col-xs-12">
+									Next&gt;
+								</Button>
 							</div>
 						</form>
 					</div>

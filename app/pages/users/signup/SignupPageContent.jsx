@@ -4,7 +4,7 @@ import SignupBasicInfoStep from './SignupBasicInfoStep'
 import SignupEducationStep from './SignupEducationStep'
 import SignupExperienceStep from './SignupExperienceStep'
 import { signup } from '../../../actions/userActions'
-import { Steps, Button } from 'antd'
+import { Steps } from 'antd'
 
 const Step = Steps.Step
 
@@ -13,15 +13,6 @@ class SignupPageContent extends Component {
 		super(props)
 		this.state = {
 			currentStep: 0,
-			isValidated: 0,
-		}
-	}
-
-	inputSatisfied(value){
-		if (value === true) {
-			this.setState({
-				isValidated: 1
-			})
 		}
 	}
 
@@ -34,21 +25,29 @@ class SignupPageContent extends Component {
 			['Basic Information',
 			<SignupBasicInfoStep
 				userSignupState={this.props.userSignupState}
-				getMsg={this.inputSatisfied.bind(this)}/>],
+				previous={this.previous.bind(this)}
+				next={this.next.bind(this)}
+				signupHandler={this.signupHandler.bind(this)}
+				{...this.state}/>],
 			['Education Background',
 			<SignupEducationStep
-				userSignupState={this.props.userSignupState}/>],
+				userSignupState={this.props.userSignupState}
+				previous={this.previous.bind(this)}
+				next={this.next.bind(this)}
+				{...this.state}/>],
 			['Current & Past Experience',
 			<SignupExperienceStep
-				userSignupState={this.props.userSignupState}/>]]
+				userSignupState={this.props.userSignupState}
+				previous={this.previous.bind(this)}
+				next={this.next.bind(this)}
+				signup={this.signupHandler.bind(this)}
+				{...this.state}/>]]
 	}
 
 	next() {
 		const newStep = this.state.currentStep + 1
-		if (this.state.isValidated === 1) {
-			if (newStep <= this.getStepContents().length - 1) {
-				this.setState({currentStep: newStep})
-			}
+		if (newStep <= this.getStepContents().length - 1) {
+			this.setState({currentStep: newStep})
 		}
 	}
 
@@ -59,25 +58,13 @@ class SignupPageContent extends Component {
 		}
 	}
 
-	signup(firstName, lastName, preferredName, phone, email, password, consented) {
+	signupHandler(firstName, lastName, preferredName, phone, email, password, consented) {
 		this.props.dispatch(signup(firstName, lastName, preferredName, phone, email, password, consented))
 	}
 
 	render() {
 		const content = this.getStepContents()[this.state.currentStep][1]
-		const nextButton = this.state.currentStep === this.getStepContents().length - 1
-			? <Button type="primary"
-				size="large"
-				onClick={this.signup.bind(this)}
-				className="col-xs-12">
-				Register
-			</Button>
-			: <Button type="primary"
-				size="large"
-				onClick={this.next.bind(this)}
-				className="col-xs-12">
-				Next&gt;
-			</Button>
+
 		return (
 			<div className="progress-outer-container">
 				<Steps current={ this.state.currentStep }>
@@ -85,18 +72,6 @@ class SignupPageContent extends Component {
 				</Steps>
 				<div className="progress-container" >
 					{ content }
-				</div>
-				<div className="back-btn-container">
-					<Button type="primary"
-						size="large"
-						disabled={ this.state.currentStep === 0}
-						onClick={ this.previous.bind(this) }
-						className="col-xs-12">
-						&lt;Back
-					</Button>
-				</div>
-				<div className="next-btn-container">
-					{ nextButton }
 				</div>
 			</div>
 		)
