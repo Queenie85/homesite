@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { coffeeApp } from '../config/config'
+import config from '../config/config'
 import { coffeeApi } from '../config/api'
 import { getSessionValues } from '../util/loginHelpers'
-import { createCookie, eraseCookie, 
+import { createCookie, eraseCookie,
 	userIdCookie, emailCookie, sessionCookie } from '../util/cookieHelpers'
 
 export const SIGNUP_INVALID_REQUEST = 'SIGNUP_INVALID_REQUEST'
@@ -21,7 +21,7 @@ export function getProfile(id) {
 	return dispatch => {
 		dispatch(getProfileStart())
 		const { userId, sessionId, email } = getSessionValues()
-		axios.get(coffeeApp.baseUrl + coffeeApi.getProfile + '/' + id, {
+		axios.get(config.coffeeApp.baseUrl + coffeeApi.getProfile + '/' + id, {
 			headers: {
 				fe_el_id: userId,
 				fe_el: email,
@@ -38,10 +38,10 @@ export function getProfile(id) {
 
 export function signup(firstName, lastName, preferredName, phone, email, password, consented) {
 	return dispatch => {
-		axios.post(coffeeApp.baseUrl + coffeeApi.signup,
+		axios.post(config.coffeeApp.baseUrl + coffeeApi.signup,
 			{
-				email: email, 
-				password: password, 
+				email: email,
+				password: password,
 				first_name: firstName,
 				preferred_name: preferredName,
 				phone: phone,
@@ -60,7 +60,7 @@ export function signup(firstName, lastName, preferredName, phone, email, passwor
 
 export function signin(email, password) {
 	return dispatch => {
-		axios.post(coffeeApp.baseUrl + coffeeApi.signin,
+		axios.post(config.coffeeApp.baseUrl + coffeeApi.signin,
 			{
 				email: email,
 				password: password,
@@ -83,11 +83,11 @@ export function existingSignin() {
 	}
 }
 
-export function signout() {   
+export function signout() {
 	return dispatch => {
 		const { userId, sessionId, email } = getSessionValues()
 		if (userId !== null && sessionId !== null && email !== null) {
-			axios.post(coffeeApp.baseUrl + coffeeApi.signout,
+			axios.post(config.coffeeApp.baseUrl + coffeeApi.signout,
 				{
 					email: email,
 					session_id: sessionId,
@@ -108,7 +108,7 @@ export function signout() {
 }
 
 function receiveSignupException(msg) {
-	return { 
+	return {
 		type: SIGNUP_INVALID_REQUEST,
 		signupMsg: msg,
 	}
